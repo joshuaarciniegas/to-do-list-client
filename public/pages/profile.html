@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Perfil - ListUp</title>
+
+  <!-- Conexión a Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS específico de la página de perfil -->
   <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
   <div class="frame">
+    <!-- Sidebar con logo y descripción -->
     <aside class="sidebar">
       <div class="brand">
         <img src="LOGO EMPRESA.png" alt="Logo ListUp">
@@ -21,16 +26,21 @@
       </div>
     </aside>
 
+    <!-- Área principal del perfil de usuario -->
     <main class="main">
       <div class="card">
+        <!-- Información principal con foto y nombre -->
         <div style="display:flex;gap:16px;align-items:center">
-          <div class="profile-pic"><img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Foto de perfil"></div>
+          <div class="profile-pic">
+            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Foto de perfil">
+          </div>
           <div>
             <h2 style="margin:0">Neque porro quisme</h2>
             <p style="margin:6px 0 0 0;color:var(--muted)">Miembro desde: 24 Junio 2025</p>
           </div>
         </div>
 
+        <!-- Información detallada del usuario -->
         <div class="info">
           <p><strong>Nombre y Apellido:</strong> Neque porro quisme</p>
           <hr>
@@ -40,14 +50,20 @@
           <hr>
         </div>
 
+        <!-- Botones de acción del perfil -->
         <div class="buttons">
+          <!-- Redirige a editar perfil -->
           <button onclick="window.location.href='editprofile.html'" class="btn edit">Editar perfil</button>
+          <!-- Redirige a eliminar cuenta -->
           <button onclick="window.location.href='deleteaccount.html'" class="btn delete">Eliminar cuenta</button>
+          <!-- Cierra sesión usando la lógica en auth.js -->
           <button id="logout-btn" class="btn logout">Cerrar sesión</button>
         </div>
       </div>
     </main>
   </div>
+
+  <!-- Script que contiene la lógica de autenticación y cierre de sesión -->
   <script src="../js/auth.js"></script>
 </body>
 </html>

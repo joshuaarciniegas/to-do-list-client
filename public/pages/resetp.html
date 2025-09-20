@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Restablecer Contraseña — ListUp</title>
+
+  <!-- Conexión a Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS específico de la página de restablecimiento de contraseña -->
   <link rel="stylesheet" href="../css/resetp.css">
 </head>
 <body>
   <div class="frame">
+    <!-- Sidebar con logo y descripción -->
     <aside class="sidebar">
       <div class="brand">
         <img src="LOGO EMPRESA.png" alt="Logo ListUp">
@@ -21,24 +26,35 @@
       </div>
     </aside>
 
+    <!-- Área principal para restablecer la contraseña -->
     <main class="main">
       <div class="card">
         <h2>Restablece tu contraseña</h2>
+
+        <!-- Formulario para ingresar nueva contraseña -->
         <form id="resetForm">
+          <!-- Campo para la nueva contraseña -->
           <label for="new-password">Nueva contraseña:</label>
           <input type="password" id="new-password" placeholder="••••••••" required>
 
+          <!-- Campo para confirmar la contraseña -->
           <label for="confirm-password">Confirmar contraseña:</label>
           <input type="password" id="confirm-password" placeholder="••••••••" required>
 
+          <!-- Mensaje de error que se mostrará si hay un problema con las contraseñas -->
           <p id="error-message" class="error-message">Las contraseñas no coinciden</p>
+
+          <!-- Información adicional sobre los requisitos de la contraseña -->
           <p class="info-text">Su contraseña debe contener mínimo 8 caracteres, incluir mayúscula, minúscula y número</p>
 
+          <!-- Botón para enviar el formulario -->
           <button type="submit">Actualizar contraseña</button>
         </form>
       </div>
     </main>
   </div>
+
+  <!-- Script que contiene la lógica de validación y envío del restablecimiento -->
   <script src="../js/resetp.js"></script>
 </body>
 </html>

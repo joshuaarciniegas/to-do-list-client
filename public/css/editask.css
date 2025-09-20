@@ -1,26 +1,202 @@
+/* =============================
+   VARIABLES GLOBALES
+   ============================= */
 :root{
-      --cherish: #E1CCC7;
-      --rosegold: #BE9485;
-      --nude-blush: #E1C2B7;
-      --bridal-white: #F5EEE8;
-      --text: #2f2725;
-      --muted: rgba(47,39,37,0.68);
-      --shadow: 0 12px 40px rgba(46,38,35,0.08);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%);color:var(--text);display:flex;align-items:center;justify-content:center;padding:28px}
-    .frame{width:980px;max-width:96vw;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:300px 1fr;box-shadow:var(--shadow);background:rgba(255,255,255,0.95)}
-    .sidebar{padding:28px;background:linear-gradient(180deg,var(--cherish),var(--nude-blush));display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
-    .brand img{width:86px;height:86px;border-radius:12px;object-fit:contain;box-shadow:0 8px 26px rgba(0,0,0,0.12)}
-    .brand h1{margin:0;font-size:20px;font-weight:800}
-    .brand p{margin:4px 0 0 0;color:var(--muted)}
-    .main{padding:36px;display:flex;align-items:center;justify-content:center}
-    .card{width:100%;max-width:560px;background:var(--bridal-white);border-radius:12px;padding:26px;box-shadow:0 10px 30px rgba(0,0,0,0.04)}
-    h2{margin:0 0 8px 0;font-size:20px}
-    form{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end}
-    label{grid-column:span 2;font-size:13px;color:var(--muted);margin-top:8px}
-    input[type="text"], input[type="date"], input[type="time"], select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:rgba(255,255,255,0.95);font-size:14px}
-    input[type="text"]#titulo{grid-column:span 2}
-    textarea{width:100%;min-height:100px;border-radius:10px;padding:10px;border:1px solid rgba(0,0,0,0.06)}
-    .btn-guardar{grid-column:span 2;padding:12px;border-radius:10px;border:none;background:linear-gradient(180deg,var(--rosegold),#a97566);color:white;font-weight:700;cursor:pointer;margin-top:8px;box-shadow:0 8px 26px rgba(190,148,133,0.18)}
-    @media(max-width:800px){.frame{grid-template-columns:1fr}.brand{flex-direction:row;gap:12px}.brand h1{font-size:18px}.main{padding:20px}.card{padding:20px}form{grid-template-columns:1fr}label{grid-column:span 1}.btn-guardar{grid-column:span 1}}
+  /* Paleta de colores principales */
+  --cherish: #E1CCC7;
+  --rosegold: #BE9485;
+  --nude-blush: #E1C2B7;
+  --bridal-white: #F5EEE8;
+
+  /* Colores de texto */
+  --text: #2f2725; /* Color principal del texto */
+  --muted: rgba(47,39,37,0.68); /* Texto secundario, menos importante */
+
+  /* Sombra para cajas */
+  --shadow: 0 12px 40px rgba(46,38,35,0.08);
+}
+
+/* =============================
+   RESET GENERAL
+   ============================= */
+*{box-sizing:border-box} /* Padding y border no aumentan el ancho de elementos */
+
+/* =============================
+   BODY
+   ============================= */
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Fondo degradado */
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px; /* Espacio alrededor del contenido */
+}
+
+/* =============================
+   CONTENEDOR PRINCIPAL
+   ============================= */
+.frame{
+  width:980px;
+  max-width:96vw; /* Para pantallas pequeñas */
+  border-radius:16px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:300px 1fr; /* Sidebar + contenido principal */
+  box-shadow:var(--shadow);
+  background:rgba(255,255,255,0.95); /* Fondo semitransparente */
+}
+
+/* =============================
+   SIDEBAR
+   ============================= */
+.sidebar{
+  padding:28px;
+  background:linear-gradient(180deg,var(--cherish),var(--nude-blush));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  text-align:center;
+}
+
+/* =============================
+   BRAND (Logo y nombre)
+   ============================= */
+.brand img{
+  width:86px;
+  height:86px;
+  border-radius:12px;
+  object-fit:contain;
+  box-shadow:0 8px 26px rgba(0,0,0,0.12);
+}
+
+.brand h1{
+  margin:0;
+  font-size:20px;
+  font-weight:800;
+}
+
+.brand p{
+  margin:4px 0 0 0;
+  color:var(--muted); /* Texto secundario */
+}
+
+/* =============================
+   ÁREA PRINCIPAL
+   ============================= */
+.main{
+  padding:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* =============================
+   TARJETA PRINCIPAL
+   ============================= */
+.card{
+  width:100%;
+  max-width:560px;
+  background:var(--bridal-white);
+  border-radius:12px;
+  padding:26px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+}
+
+/* Encabezados */
+h2{
+  margin:0 0 8px 0;
+  font-size:20px;
+}
+
+/* =============================
+   FORMULARIO
+   ============================= */
+form{
+  display:grid;
+  grid-template-columns:1fr 1fr; /* Dos columnas */
+  gap:12px;
+  align-items:end;
+}
+
+label{
+  grid-column:span 2; /* Ocupa las dos columnas por defecto */
+  font-size:13px;
+  color:var(--muted);
+  margin-top:8px;
+}
+
+/* Inputs generales */
+input[type="text"], 
+input[type="date"], 
+input[type="time"], 
+select{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.06);
+  background:rgba(255,255,255,0.95);
+  font-size:14px;
+}
+
+/* Input de título ocupa las dos columnas */
+input[type="text"]#titulo{
+  grid-column:span 2;
+}
+
+/* Textarea */
+textarea{
+  width:100%;
+  min-height:100px;
+  border-radius:10px;
+  padding:10px;
+  border:1px solid rgba(0,0,0,0.06);
+}
+
+/* Botón de guardar */
+.btn-guardar{
+  grid-column:span 2;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  background:linear-gradient(180deg,var(--rosegold),#a97566);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  margin-top:8px;
+  box-shadow:0 8px 26px rgba(190,148,133,0.18);
+}
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+@media(max-width:800px){
+  .frame{
+    grid-template-columns:1fr; /* Sidebar arriba del contenido */
+  }
+  .brand{
+    flex-direction:row;
+    gap:12px;
+  }
+  .brand h1{
+    font-size:18px;
+  }
+  .main{
+    padding:20px;
+  }
+  .card{
+    padding:20px;
+  }
+  form{
+    grid-template-columns:1fr; /* Una columna en móviles */
+  }
+  label{
+    grid-column:span 1; /* Ocupa solo una columna */
+  }
+  .btn-guardar{
+    grid-column:span 1;
+  }
+}

@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Crear nueva tarea — ListUp</title>
+
+  <!-- Conexión a Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS específico de la página -->
   <link rel="stylesheet" href="../css/newtask.css">
 </head>
 <body>
   <div class="frame">
+    <!-- Sidebar con logo y descripción -->
     <aside class="sidebar">
       <div class="brand">
         <img src="LOGO EMPRESA.png" alt="Logo ListUp">
@@ -21,28 +26,37 @@
       </div>
     </aside>
 
+    <!-- Área principal para crear una nueva tarea -->
     <main class="main">
       <div class="card">
         <h2>CREAR NUEVA TAREA</h2>
+
+        <!-- Formulario de creación de tarea -->
         <form id="formTarea">
+          <!-- Campo de título de la tarea -->
           <label for="titulo">Título:</label>
           <input type="text" id="titulo" name="title" required>
 
+          <!-- Campo de detalle de la tarea -->
           <label for="detalle">Detalle:</label>
           <input type="text" id="detalle" name="detail" required>
 
+          <!-- Campo de estado de la tarea -->
           <label for="estado">Estado:</label>
           <select id="estado" name="status" required>
-            <option value="por-hacer">Por Hacer</option>
-            <option value="haciendo">Haciendo</option>
-            <option value="hecho">Hecho</option>
+            <option value="Por hacer">Por Hacer</option>
+            <option value="Haciendo">Haciendo</option>
+            <option value="Hecho">Hecho</option>
           </select>
 
+          <!-- Botón para enviar el formulario -->
           <button type="submit" class="btn-guardar">GUARDAR</button>
         </form>
       </div>
     </main>
   </div>
+
+  <!-- Script que contiene la lógica para crear tareas -->
   <script src="../js/tasks.js"></script>
 </body>
 </html>

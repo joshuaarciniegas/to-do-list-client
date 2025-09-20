@@ -1,19 +1,178 @@
-:root{--cherish:#E1CCC7;--rosegold:#BE9485;--nude-blush:#E1C2B7;--bridal-white:#F5EEE8;--text:#2f2725;--muted:rgba(47,39,37,0.68);--shadow:0 12px 40px rgba(46,38,35,0.08)}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto;background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%);color:var(--text);display:flex;align-items:center;justify-content:center;padding:28px}
-    .frame{width:980px;max-width:96vw;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:300px 1fr;box-shadow:var(--shadow);background:rgba(255,255,255,0.96)}
-    .sidebar{padding:28px;background:linear-gradient(180deg,var(--cherish),var(--nude-blush));display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
-    .brand img{width:86px;height:86px;border-radius:12px;object-fit:contain;box-shadow:0 8px 26px rgba(0,0,0,0.12)}
-    .brand h1{margin:0;font-size:20px;font-weight:800}
-    .brand p{margin:4px 0 0 0;color:var(--muted)}
-    .main{padding:36px;display:flex;align-items:center;justify-content:center}
-    .card{width:100%;max-width:560px;background:var(--bridal-white);border-radius:12px;padding:26px;box-shadow:0 10px 30px rgba(0,0,0,0.04)}
-    .profile-pic img{width:110px;height:110px;border-radius:16px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
-    .info{margin-top:14px;text-align:left}
-    .info p{margin:8px 0;color:var(--muted)}
-    .buttons{display:flex;gap:10px;margin-top:16px}
-    .btn{padding:10px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
-    .btn.edit{background:linear-gradient(180deg,var(--rosegold),#a97566);color:white}
-    .btn.delete{background:transparent;border:1px solid rgba(0,0,0,0.08);color:var(--text)}
-    .btn.logout{background:rgba(0,0,0,0.06)}
-    @media(max-width:800px){.frame{grid-template-columns:1fr}.brand{flex-direction:row}.card{padding:20px}}
+/* =============================
+   VARIABLES GLOBALES
+   ============================= */
+:root{
+  /* Colores principales de la app */
+  --cherish:#E1CCC7;        /* Color de fondo superior sidebar */
+  --rosegold:#BE9485;       /* Color principal de botones */
+  --nude-blush:#E1C2B7;     /* Color secundario sidebar */
+  --bridal-white:#F5EEE8;   /* Fondo de las tarjetas */
+
+  /* Colores de texto */
+  --text:#2f2725;           /* Texto principal */
+  --muted:rgba(47,39,37,0.68); /* Texto secundario */
+
+  /* Sombra general */
+  --shadow:0 12px 40px rgba(46,38,35,0.08);
+}
+
+/* =============================
+   RESET Y CONFIGURACIÓN GENERAL
+   ============================= */
+*{box-sizing:border-box} /* Padding y borde no aumentan el tamaño total del elemento */
+
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto; /* Tipografía */
+  display:flex;
+  align-items:center;      /* Centrado vertical */
+  justify-content:center;  /* Centrado horizontal */
+  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Fondo degradado */
+  color:var(--text);
+  padding:28px;            /* Espacio alrededor del contenido */
+}
+
+/* =============================
+   CONTENEDOR PRINCIPAL
+   ============================= */
+.frame{
+  width:980px;
+  max-width:96vw;                  /* Adaptable a pantallas pequeñas */
+  border-radius:16px;              /* Bordes redondeados */
+  overflow:hidden;                 /* Oculta overflow */
+  display:grid;
+  grid-template-columns:300px 1fr; /* Sidebar + contenido principal */
+  box-shadow:var(--shadow);
+  background:rgba(255,255,255,0.96); /* Fondo semitransparente */
+}
+
+/* =============================
+   SIDEBAR
+   ============================= */
+.sidebar{
+  padding:28px;
+  background:linear-gradient(180deg,var(--cherish),var(--nude-blush)); /* Degradado */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  text-align:center;
+}
+
+/* =============================
+   BRAND (Logo y nombre)
+   ============================= */
+.brand img{
+  width:86px;
+  height:86px;
+  border-radius:12px;
+  object-fit:contain;
+  box-shadow:0 8px 26px rgba(0,0,0,0.12); /* Sombra del logo */
+}
+
+.brand h1{
+  margin:0;
+  font-size:20px;
+  font-weight:800; /* Negrita */
+}
+
+.brand p{
+  margin:4px 0 0 0;
+  color:var(--muted); /* Texto secundario */
+}
+
+/* =============================
+   ÁREA PRINCIPAL
+   ============================= */
+.main{
+  padding:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* =============================
+   TARJETA PRINCIPAL
+   ============================= */
+.card{
+  width:100%;
+  max-width:560px;
+  background:var(--bridal-white);
+  border-radius:12px;
+  padding:26px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+}
+
+/* =============================
+   FOTO DE PERFIL
+   ============================= */
+.profile-pic img{
+  width:110px;
+  height:110px;
+  border-radius:16px;
+  object-fit:cover;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* =============================
+   INFORMACIÓN DEL USUARIO
+   ============================= */
+.info{
+  margin-top:14px;
+  text-align:left;
+}
+
+.info p{
+  margin:8px 0;
+  color:var(--muted);
+}
+
+/* =============================
+   BOTONES DE ACCIÓN
+   ============================= */
+.buttons{
+  display:flex;
+  gap:10px;
+  margin-top:16px;
+}
+
+.btn{
+  padding:10px 12px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* Botón editar */
+.btn.edit{
+  background:linear-gradient(180deg,var(--rosegold),#a97566);
+  color:white;
+}
+
+/* Botón eliminar */
+.btn.delete{
+  background:transparent;
+  border:1px solid rgba(0,0,0,0.08);
+  color:var(--text);
+}
+
+/* Botón cerrar sesión */
+.btn.logout{
+  background:rgba(0,0,0,0.06);
+}
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+@media(max-width:800px){
+  .frame{
+    grid-template-columns:1fr; /* Sidebar arriba del contenido */
+  }
+  .brand{
+    flex-direction:row;        /* Ajuste del logo y nombre */
+  }
+  .card{
+    padding:20px;             /* Ajuste de padding en pantallas pequeñas */
+  }
+}

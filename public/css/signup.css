@@ -1,17 +1,183 @@
-:root{--cherish:#E1CCC7;--rosegold:#BE9485;--nude-blush:#E1C2B7;--bridal-white:#F5EEE8;--text:#2f2725;--muted:rgba(47,39,37,0.68);--shadow:0 12px 40px rgba(46,38,35,0.08)}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto;background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%);color:var(--text);display:flex;align-items:center;justify-content:center;padding:28px}
-    .frame{width:980px;max-width:96vw;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:300px 1fr;box-shadow:var(--shadow);background:rgba(255,255,255,0.96)}
-    .sidebar{padding:28px;background:linear-gradient(180deg,var(--cherish),var(--nude-blush));display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
-    .brand img{width:86px;height:86px;border-radius:12px;object-fit:contain;box-shadow:0 8px 26px rgba(0,0,0,0.12)}
-    .brand h1{margin:0;font-size:20px;font-weight:800}
-    .brand p{margin:4px 0 0 0;color:var(--muted)}
-    .main{padding:36px;display:flex;align-items:center;justify-content:center}
-    .card{width:100%;max-width:560px;background:var(--bridal-white);border-radius:12px;padding:26px;box-shadow:0 10px 30px rgba(0,0,0,0.04);text-align:center}
-    h2{margin:0 0 8px 0;font-size:20px}
-    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    label{grid-column:span 2;font-size:13px;color:var(--muted);margin-top:8px;text-align:left}
-    input, select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:rgba(255,255,255,0.95);font-size:14px}
-    button[type="submit"]{grid-column:span 2;padding:12px;border-radius:10px;border:none;background:linear-gradient(180deg,var(--rosegold),#a97566);color:white;font-weight:700;cursor:pointer}
-    .back-login{grid-column:span 2;text-align:left;margin-top:8px;display:inline-block;color:var(--muted);text-decoration:none}
-    @media(max-width:800px){.frame{grid-template-columns:1fr}.card{padding:20px}form{grid-template-columns:1fr}label{grid-column:span 1}}
+/* =============================
+   VARIABLES GLOBALES
+   ============================= */
+:root{
+  /* Colores principales de la app */
+  --cherish:#E1CCC7;        /* Color superior del sidebar */
+  --rosegold:#BE9485;       /* Color principal de botones */
+  --nude-blush:#E1C2B7;     /* Color secundario del sidebar */
+  --bridal-white:#F5EEE8;   /* Fondo de las tarjetas */
+
+  /* Colores de texto */
+  --text:#2f2725;           /* Texto principal */
+  --muted:rgba(47,39,37,0.68); /* Texto secundario */
+
+  /* Sombra general */
+  --shadow:0 12px 40px rgba(46,38,35,0.08);
+}
+
+/* =============================
+   RESET Y CONFIGURACIÓN GENERAL
+   ============================= */
+*{box-sizing:border-box} /* Padding y borde no aumentan el tamaño total del elemento */
+
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto; /* Tipografía */
+  display:flex;
+  align-items:center;      /* Centrado vertical */
+  justify-content:center;  /* Centrado horizontal */
+  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Fondo degradado */
+  color:var(--text);
+  padding:28px;            /* Espacio alrededor del contenido */
+}
+
+/* =============================
+   CONTENEDOR PRINCIPAL
+   ============================= */
+.frame{
+  width:980px;
+  max-width:96vw;                  /* Adaptable a pantallas pequeñas */
+  border-radius:16px;              /* Bordes redondeados */
+  overflow:hidden;                 /* Oculta overflow */
+  display:grid;
+  grid-template-columns:300px 1fr; /* Sidebar + contenido principal */
+  box-shadow:var(--shadow);
+  background:rgba(255,255,255,0.96); /* Fondo semitransparente */
+}
+
+/* =============================
+   SIDEBAR
+   ============================= */
+.sidebar{
+  padding:28px;
+  background:linear-gradient(180deg,var(--cherish),var(--nude-blush)); /* Degradado */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  text-align:center;
+}
+
+/* =============================
+   BRAND (Logo y nombre)
+   ============================= */
+.brand img{
+  width:86px;
+  height:86px;
+  border-radius:12px;
+  object-fit:contain;
+  box-shadow:0 8px 26px rgba(0,0,0,0.12); /* Sombra del logo */
+}
+
+.brand h1{
+  margin:0;
+  font-size:20px;
+  font-weight:800; /* Negrita */
+}
+
+.brand p{
+  margin:4px 0 0 0;
+  color:var(--muted); /* Texto secundario */
+}
+
+/* =============================
+   ÁREA PRINCIPAL
+   ============================= */
+.main{
+  padding:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* =============================
+   TARJETA PRINCIPAL
+   ============================= */
+.card{
+  width:100%;
+  max-width:560px;
+  background:var(--bridal-white);
+  border-radius:12px;
+  padding:26px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+  text-align:center;
+}
+
+/* =============================
+   ENCABEZADOS
+   ============================= */
+h2{
+  margin:0 0 8px 0;
+  font-size:20px;
+}
+
+/* =============================
+   FORMULARIOS
+   ============================= */
+form{
+  display:grid;
+  grid-template-columns:1fr 1fr; /* Dos columnas para inputs */
+  gap:12px;
+}
+
+label{
+  grid-column:span 2;           /* Ocupa ambas columnas */
+  font-size:13px;
+  color:var(--muted);
+  margin-top:8px;
+  text-align:left;
+}
+
+input, select{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.06);
+  background:rgba(255,255,255,0.95);
+  font-size:14px;
+}
+
+/* =============================
+   BOTONES
+   ============================= */
+button[type="submit"]{
+  grid-column:span 2; /* Ocupa ambas columnas */
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  background:linear-gradient(180deg,var(--rosegold),#a97566);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* =============================
+   ENLACE "VOLVER A LOGIN"
+   ============================= */
+.back-login{
+  grid-column:span 2;           /* Ocupa ambas columnas */
+  text-align:left;
+  margin-top:8px;
+  display:inline-block;
+  color:var(--muted);
+  text-decoration:none;
+}
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+@media(max-width:800px){
+  .frame{
+    grid-template-columns:1fr; /* Sidebar arriba del contenido */
+  }
+  .card{
+    padding:20px; /* Ajuste de padding en pantallas pequeñas */
+  }
+  form{
+    grid-template-columns:1fr; /* Un solo input por fila */
+  }
+  label{
+    grid-column:span 1; /* Ajuste de etiquetas */
+  }
+}

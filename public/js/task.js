@@ -4,6 +4,18 @@ function editTask(button) {
   alert("Función de editar tarea - aquí puedes integrar tu lógica de edición")
 }
 
+// Funcion para los botones perfil y nueva tarea
+// Función para redirigir al perfil
+function goToProfile() {
+  window.location.href = "profile.html"; // cámbialo por la ruta real
+}
+
+// Función para redirigir a la creación de tarea
+function goToCreateTask() {
+  window.location.href = "newtask.html"; // cámbialo por la ruta real
+}
+
+
 // Función de búsqueda básica
 document.getElementById("searchInput").addEventListener("input", (e) => {
   const searchTerm = e.target.value.toLowerCase()
@@ -22,58 +34,77 @@ document.getElementById("searchInput").addEventListener("input", (e) => {
   })
 })
 
-// Función para agregar nueva tarea
-async function loadTasks() {
-  try {
-    const response = await fetch("https://demo-290a.onrender.com/api/v1/tasks/mytasks", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        // Si tu backend requiere autenticación, aquí se añade el token
-        // "Authorization": "Bearer " + localStorage.getItem("token")
-      }
-    });
+// funcion para mostrar las tareas
+document.addEventListener("DOMContentLoaded", async () => {
+  async function loadTasks() {
+    try {
+      const token = localStorage.getItem("token"); // ajusta el nombre si es diferente
 
-    if (!response.ok) {
-      throw new Error("Error al cargar las tareas");
+      if (!token) {
+        throw new Error("No se encontró el token de autenticación");
+      }
+
+      const response = await fetch("https://demo-290a.onrender.com/api/v1/tasks/mytasks", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Error al cargar tareas");
+      }
+
+      const tasks = data.tasks || [];
+      renderTasks(tasks);
+    } catch (error) {
+      console.error("Error al cargar tareas:", error.message);
+      document.getElementById("todo-column").innerHTML = `<p style="color:red;">❌ ${error.message}</p>`;
     }
-
-    const tasks = await response.json();
-
-    // Limpiar columnas antes de volver a renderizar
-    document.getElementById("todo-column").innerHTML = "";
-    document.getElementById("doing-column").innerHTML = "";
-    document.getElementById("done-column").innerHTML = "";
-
-    tasks.forEach(task => {
-      const taskCard = document.createElement("div");
-      taskCard.classList.add("task-card");
-
-      taskCard.innerHTML = `
-        <div class="task-title">TÍTULO: ${task.title}</div>
-        <div class="task-date">${task.date || "Sin fecha"}</div>
-        <div class="task-description">${task.description || "Sin descripción"}</div>
-        <div class="task-time">${task.time || "00:00"}</div>
-        <div class="task-actions">
-          <button class="edit-button" onclick="editTask('${task._id}')">Editar</button>
-          <button class="delete-button" onclick="deleteTask('${task._id}')">Borrar</button>
-        </div>
-      `;
-
-      // Colocar la tarjeta en la columna correcta
-      if (task.status === "todo") {
-        document.getElementById("todo-column").appendChild(taskCard);
-      } else if (task.status === "doing") {
-        document.getElementById("doing-column").appendChild(taskCard);
-      } else if (task.status === "done") {
-        document.getElementById("done-column").appendChild(taskCard);
-      }
-    });
-  } catch (error) {
-    console.error("Error:", error);
   }
+
+  function renderTasks(tasks) {
+  const todo = document.getElementById("todo-column");
+  const doing = document.getElementById("doing-column");
+  const done = document.getElementById("done-column");
+
+  todo.innerHTML = "";
+  doing.innerHTML = "";
+  done.innerHTML = "";
+
+  tasks.forEach((t) => {
+    const card = document.createElement("div");
+    card.className = "task-card";
+    card.innerHTML = `
+      <div class="task-header">
+        <span>${t.title}</span>
+        <span class="task-status">${t.status}</span>
+      </div>
+      <div class="task-detail">${t.detail || ""}</div>
+      <div class="task-date">
+        ${t.date ? new Date(t.date).toLocaleDateString("es-ES") : "Sin fecha"} 
+        ${t.time || ""}
+      </div>
+      <div class="task-actions">
+        <button title="Editar">Editar</button>
+        <button title="Eliminar">Eliminar</button>
+      </div>
+    `;
+
+    const status = t.status;
+
+    if (status === "Por hacer") {
+      todo.appendChild(card);
+    } else if (status === "Haciendo") {
+      doing.appendChild(card);
+    } else if (status === "Hecho") {
+      done.appendChild(card);
+    }
+  });
 }
 
-// Llamar cuando se cargue la página
-document.addEventListener("DOMContentLoaded", loadTasks);
-
+  await loadTasks();
+});

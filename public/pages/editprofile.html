@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Editar Perfil — ListUp</title>
+
+  <!-- Conexión a Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS específico de la página -->
   <link rel="stylesheet" href="../css/editprofile.css">
 </head>
 <body>
   <div class="frame">
+    <!-- Sidebar con logo y descripción -->
     <aside class="sidebar">
       <div class="brand">
         <img src="LOGO EMPRESA.png" alt="Logo ListUp">
@@ -21,27 +26,38 @@
       </div>
     </aside>
 
+    <!-- Área principal de edición de perfil -->
     <main class="main">
       <div class="card">
         <h2>EDITAR PERFIL</h2>
+
+        <!-- Formulario de edición de perfil -->
         <form id="editProfileForm">
+          <!-- Campo de nombre -->
           <label for="nombre">Nombre:</label>
           <input type="text" id="nombre" name="nombre" value="Nombre actual" required>
 
+          <!-- Campo de apellido -->
           <label for="apellido">Apellido:</label>
           <input type="text" id="apellido" name="apellido" value="Apellido actual" required>
 
+          <!-- Campo de correo electrónico -->
           <label for="correo">Correo:</label>
           <input type="email" id="correo" name="correo" value="correo@ejemplo.com" required>
 
+          <!-- Campo de usuario -->
           <label for="usuario">Usuario:</label>
           <input type="text" id="usuario" name="usuario" value="UsuarioActual" required>
 
+          <!-- Campo de contraseña -->
           <label for="clave">Contraseña:</label>
           <input type="password" id="clave" name="clave" placeholder="••••••••" required>
 
+          <!-- Botones de acción -->
           <div class="button-group">
+            <!-- Botón de guardar cambios -->
             <button type="submit" class="btn-guardar">GUARDAR CAMBIOS</button>
+            <!-- Botón de cancelar llama a la función cancelarEdicion() -->
             <button type="button" class="btn-cancelar" onclick="cancelarEdicion()">CANCELAR</button>
           </div>
         </form>
@@ -49,16 +65,18 @@
     </main>
   </div>
 
+  <!-- Script con la funcionalidad de los botones -->
   <script>
+    // Función para cancelar la edición y redirigir a perfil
     function cancelarEdicion() {
-      // Redirige a perfil o tareas según lo que prefieras
       window.location.href = "profile.html";
     }
 
+    // Listener para el envío del formulario
     document.getElementById("editProfileForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+      event.preventDefault(); // Previene envío tradicional
       alert("Cambios guardados correctamente ✅");
-      // Aquí agregarías tu lógica para guardar los datos en la base de datos
+      // Aquí es donde se integraría la lógica para guardar cambios en la base de datos
     });
   </script>
 </body>

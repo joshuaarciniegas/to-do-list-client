@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Editar tarea — ListUp</title>
+
+  <!-- Conexión a Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS específico de la página -->
   <link rel="stylesheet" href="../css/editask.css">
 </head>
 <body>
   <div class="frame">
+    <!-- Sidebar con logo y descripción de la app -->
     <aside class="sidebar">
       <div class="brand">
         <img src="LOGO EMPRESA.png" alt="Logo ListUp">
@@ -21,22 +26,30 @@
       </div>
     </aside>
 
+    <!-- Área principal para editar la tarea -->
     <main class="main">
       <div class="card">
         <h2>EDITAR TAREA</h2>
+
+        <!-- Formulario para editar tarea -->
         <form id="formEditarTarea">
+          <!-- Campo de título de la tarea -->
           <label for="titulo">Título:</label>
           <input type="text" id="titulo" name="titulo" required value="Tarea ejemplo">
 
+          <!-- Campo de detalle de la tarea -->
           <label for="detalle">Detalle:</label>
           <input type="text" id="detalle" name="detalle" required value="Detalle de ejemplo">
 
+          <!-- Campo de fecha de la tarea -->
           <label for="fecha">Fecha:</label>
           <input type="date" id="fecha" name="fecha" required value="2025-09-12">
 
+          <!-- Campo de hora de la tarea -->
           <label for="hora">Hora:</label>
           <input type="time" id="hora" name="hora" required value="12:00">
 
+          <!-- Campo de estado de la tarea -->
           <label for="estado">Estado:</label>
           <select id="estado" name="estado" required>
             <option value="por-hacer">Por Hacer</option>
@@ -44,11 +57,13 @@
             <option value="hecho">Hecho</option>
           </select>
 
+          <!-- Botón para enviar los cambios -->
           <button type="submit" class="btn-guardar">ACTUALIZAR</button>
         </form>
       </div>
     </main>
   </div>
-  <!-- MANTENER CUALQUIER LÓGICA/VARIABLES QUE AÑADAS FUERA; aquí no hay JS que modifique comportamiento -->
+
+  <!-- Nota: cualquier lógica de JS que modifique comportamiento debe añadirse en un archivo separado -->
 </body>
 </html>

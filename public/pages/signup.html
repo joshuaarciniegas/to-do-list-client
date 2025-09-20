@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Registro — ListUp</title>
+
+  <!-- Conexión a Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS específico de la página de registro -->
   <link rel="stylesheet" href="../css/signup.css">
 </head>
 <body>
   <div class="frame">
+    <!-- Sidebar con logo y descripción -->
     <aside class="sidebar">
       <div class="brand">
         <img src="LOGO EMPRESA.png" alt="Logo ListUp">
@@ -21,34 +26,48 @@
       </div>
     </aside>
 
+    <!-- Área principal del registro de usuario -->
     <main class="main">
       <div class="card">
         <h2>REGISTRARSE</h2>
+
+        <!-- Formulario de registro -->
         <form id="sign-up">
+          <!-- Campo de nombre -->
           <label for="name">Nombre:</label>
           <input type="text" id="name" name="firstName" placeholder="Nombre" required>
 
+          <!-- Campo de apellido -->
           <label for="lastname">Apellido:</label>
           <input type="text" id="lastname" name="lastName" placeholder="Apellido" required>
 
+          <!-- Campo de edad -->
           <label for="age">Edad:</label>
           <input type="number" id="age" name="age" min="13" placeholder="Tu edad" required>
 
+          <!-- Campo de correo electrónico -->
           <label for="email">Correo:</label>
           <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
 
+          <!-- Campo de contraseña -->
           <label for="password">Contraseña:</label>
           <input type="password" id="password" name="password" placeholder="••••••••" required>
 
+          <!-- Campo de confirmación de contraseña -->
           <label for="confirm-password">Confirmar contraseña:</label>
           <input type="password" id="confirm-password" name="confirmPassword" placeholder="••••••••" required>
 
+          <!-- Botón para enviar el formulario -->
           <button type="submit">REGISTRARME</button>
-          <a href="index.html" class="back-login">¿Ya tienes cuenta? Inicia sesión</a>
+
+          <!-- Enlace para volver al login si ya tiene cuenta -->
+          <a href="../index.html" class="back-login">¿Ya tienes cuenta? Inicia sesión</a>
         </form>
       </div>
     </main>
   </div>
+
+  <!-- Script que contiene la lógica de registro y validaciones -->
   <script src="../js/auth.js"></script>
 </body>
 </html>

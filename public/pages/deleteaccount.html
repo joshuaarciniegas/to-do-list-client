@@ -4,14 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Eliminar cuenta — ListUp</title>
+
+  <!-- Conexión a fuentes de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS específico de la página -->
   <link rel="stylesheet" href="../css/deleteaccount.css">
 </head>
 <body>
   <div class="frame">
-    <!-- Sidebar con logo y descripción -->
+    <!-- Sidebar con logo y descripción de la app -->
     <aside class="sidebar">
       <div class="brand">
         <img src="LOGO EMPRESA.png" alt="Logo empresa">
@@ -22,44 +26,55 @@
       </div>
     </aside>
 
-    <!-- Área principal -->
+    <!-- Área principal donde se muestra el contenido de eliminación de cuenta -->
     <main class="main">
       <div class="card">
         <h2>¿Seguro que deseas ELIMINAR tu cuenta?</h2>
         <p>Introduce tu contraseña y escribe <strong>ELIMINAR</strong> para confirmar esta acción irreversible.</p>
 
+        <!-- Campos de entrada -->
         <input type="password" placeholder="Contraseña" id="password">
         <input type="text" placeholder='Escribe "ELIMINAR" para confirmar' id="confirmText">
 
+        <!-- Botones de acción -->
         <div class="buttons">
+          <!-- Botón de cancelar redirige a perfil -->
           <button class="btn cancel" onclick="window.location.href='profile.html'">Cancelar</button>
+          <!-- Botón de eliminar llama a la función deleteAccount() -->
           <button class="btn delete" onclick="deleteAccount()">Eliminar</button>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal que se muestra al eliminar la cuenta -->
   <div id="successModal" class="modal">
     <div class="modal-content">
       <h3>CUENTA ELIMINADA</h3>
       <p>Tu cuenta ha sido eliminada con éxito.</p>
+      <!-- Botón para cerrar modal y redirigir -->
       <button onclick="closeModal()">Cerrar</button>
     </div>
   </div>
 
+  <!-- Script de funcionalidad -->
   <script>
+    // Función para manejar la eliminación de cuenta
     function deleteAccount() {
-      const password = document.getElementById('password').value;
-      const confirmText = document.getElementById('confirmText').value;
+      const password = document.getElementById('password').value; // Captura la contraseña
+      const confirmText = document.getElementById('confirmText').value; // Captura el texto de confirmación
 
+      // Verifica que se haya ingresado la contraseña y se haya escrito "ELIMINAR"
       if (password && confirmText === "ELIMINAR") {
+        // Muestra el modal de éxito
         document.getElementById('successModal').style.display = 'flex';
       } else {
+        // Alerta al usuario si falta algún dato
         alert("Debes ingresar tu contraseña y escribir 'ELIMINAR' para confirmar.");
       }
     }
 
+    // Función para cerrar el modal y redirigir al usuario a la página de tareas
     function closeModal() {
       document.getElementById('successModal').style.display = 'none';
       window.location.href = "tasks.html";

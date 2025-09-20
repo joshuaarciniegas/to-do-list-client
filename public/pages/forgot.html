@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Recuperar contraseña — ListUp</title>
+
+  <!-- Conexión a Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS específico de la página -->
   <link rel="stylesheet" href="../css/forgot.css">
 </head>
 <body>
   <div class="frame">
+    <!-- Sidebar con logo y descripción -->
     <aside class="sidebar">
       <div class="brand">
         <img src="LOGO EMPRESA.png" alt="Logo ListUp">
@@ -21,19 +26,31 @@
       </div>
     </aside>
 
+    <!-- Área principal de recuperación de contraseña -->
     <main class="main">
       <div class="card">
         <h2>¿Olvidaste tu contraseña?</h2>
+
+        <!-- Formulario de ingreso de correo para recuperar contraseña -->
         <form>
+          <!-- Label y campo de email -->
           <label for="email" style="width:100%;text-align:left">Correo Electrónico:</label>
           <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+
+          <!-- Texto informativo sobre el envío del enlace -->
           <p class="info-text">Te enviaremos un enlace seguro a tu correo para recuperarla</p>
+
+          <!-- Botón de envío del formulario -->
           <button type="submit">Enviar Enlace</button>
         </form>
-        <a href="index.html" class="back-login">Volver al inicio de sesión</a>
+
+        <!-- Enlace para volver al login -->
+        <a href="../index.html" class="back-login">Volver al inicio de sesión</a>
       </div>
     </main>
   </div>
+
+  <!-- Script que contiene la lógica para enviar el enlace de recuperación -->
   <script src="../js/resetp.js"></script>
 </body>
 </html>
