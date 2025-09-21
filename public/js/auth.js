@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         // Se hace una petición POST al endpoint de login del backend
-        const response = await fetch("//https://demo-290a.onrender.com/api/v1/auth/login", {
+        const response = await fetch("https://demo-290a.onrender.com/api/v1/auth/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password }), // Enviamos los datos en formato JSON
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         // Se hace una petición POST al endpoint de registro del backend
-        const response = await fetch("//https://demo-290a.onrender.com/api/v1/users/signup", {
+        const response = await fetch("https://demo-290a.onrender.com/api/v1/users/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ firstName, lastName, age, email, password, confirmPassword })
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutBtn.addEventListener("click", async () => {
       try {
         // Se hace una petición POST al endpoint de logout del backend con el token en el header
-        const response = await fetch("//https://demo-290a.onrender.com/api/v1/auth/logout", {
+        const response = await fetch("https://demo-290a.onrender.com/api/v1/auth/logout", {
           method: "POST",
           headers: { 
             "Content-Type": "application/json",

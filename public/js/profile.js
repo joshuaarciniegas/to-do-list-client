@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // Petición al backend para traer datos del usuario
-    const res = await fetch("//https://demo-290a.onrender.com/api/v1/auth/me", {
+    const res = await fetch("https://demo-290a.onrender.com/api/v1/auth/me", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       try {
         // Traemos los datos del usuario
-        const res = await fetch("//https://demo-290a.onrender.com/api/v1/auth/me", {
+        const res = await fetch("https://demo-290a.onrender.com/api/v1/auth/me", {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${token}`,
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const email = document.getElementById("email").value.trim();
 
       try {
-        const res = await fetch("//https://demo-290a.onrender.com/api/v1/users/me", {
+        const res = await fetch("https://demo-290a.onrender.com/api/v1/users/me", {
           method: "PUT",
           headers: {
             "Authorization": `Bearer ${token}`,

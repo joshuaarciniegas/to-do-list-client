@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         throw new Error("No se encontró el token de autenticación");
       }
 
-      const response = await fetch("//https://demo-290a.onrender.com/api/v1/tasks/mytasks", {
+      const response = await fetch("https://demo-290a.onrender.com/api/v1/tasks/mytasks", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
