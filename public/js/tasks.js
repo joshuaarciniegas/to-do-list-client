@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Por favor completa todos los campos");
         return;
       }
-
+ 
       try {
-        const response = await fetch("https://demo-290a.onrender.com/api/v1/tasks", {
+        const response = await fetch("//https://demo-290a.onrender.com/api/v1/tasks", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
           alert("Tarea creada ✅");
           window.location. href="../pages/tasks.html";
           formTarea.reset(); // limpiar formulario
-          // Opcional: redirigir a la lista de tareas
-          // window.location.href = "../pages/tasks.html";
         } else {
           alert(data.message || "Error al crear la tarea ❌");
         }
