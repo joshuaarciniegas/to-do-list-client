@@ -19,15 +19,20 @@
     <!-- Header de la página -->
     <header class="header">
       <div class="header-left">
-        <!-- Botón para ir al perfil -->
-        <button class="nav-button profile-button" onclick="goToProfile()">
-          <span class="user-icon">👤</span> Perfil
-        </button>
-
-        <!-- Botón para crear una nueva tarea -->
-        <button class="nav-button create-button" onclick="goToCreateTask()">
-          <span class="plus-icon">＋</span> Nueva Tarea
-        </button>
+        <!-- Botón menú hamburguesa -->
+        <div class="hamburger" id="hamburger">
+          ☰
+        </div>
+         <!-- Menú lateral hamburguesa -->
+        <nav class="side-menu" id="sideMenu">
+          <ul>
+            <li><a href="#" onclick="goToProfile()">👤 Perfil</a></li>
+            <li><a href="#" onclick="goToCreateTask()">＋ Nueva Tarea</a></li>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#" id="logout-btn">🚪 Cerrar sesión</a></li>
+          </ul>
+        </nav>
+      
       </div>
 
       <!-- Título de la página -->
@@ -81,8 +86,12 @@
       <button id="confirmar">Eliminar</button>
     </div>
   </div>
+
+
   
   <!-- Script que maneja la carga dinámica de tareas, eliminación y eventos -->
   <script src="../js/task.js"></script>
+  <!-- Script que maneja la redireccion para la funcion logout -->
+  <script src="../js/auth.js"></script>
 </body>
 </html>

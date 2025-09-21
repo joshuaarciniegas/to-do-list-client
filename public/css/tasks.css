@@ -176,3 +176,63 @@ body{
     padding:12px; /* Menor padding */
   }
 }
+/* =============================
+   MENU HAMBURGUESA
+   ============================= */
+/* Botón hamburguesa */
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  margin-left: 10px;
+  display: block; /* Siempre visible */
+  z-index: 1001; /* Encima del contenido */
+}
+
+/* Menú lateral */
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #785244;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  margin: 5px 0;
+}
+
+.side-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 10px 20px;
+  transition: background 0.2s;
+}
+
+.side-menu ul li a:hover {
+  background: #34495e;
+  border-radius: 5px;
+}
+
+/* Botón cerrar */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

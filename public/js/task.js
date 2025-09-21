@@ -5,6 +5,22 @@ function editTask(button) {
 }
 
 // Funcion para los botones perfil y nueva tarea
+
+//Funcion para el menu hamburguesa
+  const hamburger = document.getElementById("hamburger");
+  const sideMenu = document.getElementById("sideMenu");
+  let menuOpen = false;
+
+  hamburger.addEventListener("click", () => {
+    if (!menuOpen) {
+      sideMenu.style.width = "250px"; // Abre el menú
+      menuOpen = true;
+    } else {
+      sideMenu.style.width = "0"; // Cierra el menú
+      menuOpen = false;
+    }
+  });
+
 // Función para redirigir al perfil
 function goToProfile() {
   window.location.href = "profile.html"; // cámbialo por la ruta real

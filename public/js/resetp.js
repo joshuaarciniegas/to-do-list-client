@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.ok) {
           // Si la contraseña se actualiza correctamente, notifica y redirige al login
           alert("✅ Contraseña actualizada con éxito");
-          window.location.href = "index.html";
+          window.location.href = "../index.html";
         } else {
           // Muestra error retornado por el backend
           errorMessage.style.display = "block";
