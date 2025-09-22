@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Por favor completa todos los campos");
         return;
       }
- 
+ //http://localhost:3000
+ //https://demo-290a.onrender.com
       try {
         const response = await fetch("https://demo-290a.onrender.com/api/v1/tasks", {
           method: "POST",

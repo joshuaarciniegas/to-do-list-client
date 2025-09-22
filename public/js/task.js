@@ -54,7 +54,7 @@ document.getElementById("searchInput").addEventListener("input", (e) => {
 document.addEventListener("DOMContentLoaded", async () => {
   async function loadTasks() {
     try {
-      const token = localStorage.getItem("token"); // ajusta el nombre si es diferente
+      const token = localStorage.getItem("token");
 
       if (!token) {
         throw new Error("No se encontró el token de autenticación");
@@ -83,44 +83,53 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function renderTasks(tasks) {
-  const todo = document.getElementById("todo-column");
-  const doing = document.getElementById("doing-column");
-  const done = document.getElementById("done-column");
+    const todo = document.getElementById("todo-column");
+    const doing = document.getElementById("doing-column");
+    const done = document.getElementById("done-column");
 
-  todo.innerHTML = "";
-  doing.innerHTML = "";
-  done.innerHTML = "";
+    todo.innerHTML = "";
+    doing.innerHTML = "";
+    done.innerHTML = "";
 
-  tasks.forEach((t) => {
-    const card = document.createElement("div");
-    card.className = "task-card";
-    card.innerHTML = `
-      <div class="task-header">
-        <span>${t.title}</span>
-        <span class="task-status">${t.status}</span>
-      </div>
-      <div class="task-detail">${t.detail || ""}</div>
-      <div class="task-date">
-        ${t.date ? new Date(t.date).toLocaleDateString("es-ES") : "Sin fecha"} 
-        ${t.time || ""}
-      </div>
-      <div class="task-actions">
-        <button title="Editar">Editar</button>
-        <button title="Eliminar">Eliminar</button>
-      </div>
-    `;
+    tasks.forEach((t) => {
+      const card = document.createElement("div");
+      card.className = "task-card";
+      card.innerHTML = `
+        <div class="task-header">
+          <span>${t.title}</span>
+          <span class="task-status">${t.status}</span>
+        </div>
+        <div class="task-detail">${t.detail || ""}</div>
+        <div class="task-date">
+          ${t.date ? new Date(t.date).toLocaleDateString("es-ES") : "Sin fecha"} 
+          ${t.time || ""}
+        </div>
+        <div class="task-actions">
+          <button class="btn-editar" title="Editar">Editar</button>
+          <button class="btn-eliminar" title="Eliminar">Eliminar</button>
+        </div>
+      `;
 
-    const status = t.status;
+      // 🔹 Seleccionamos el botón de editar dentro de la card
+      const botonEditar = card.querySelector(".btn-editar");
+      botonEditar.addEventListener("click", () => {
+        localStorage.setItem("taskId", t._id); // guardamos el id de la tarea
+        window.location.href = "editasks.html"; // redirigimos a la página de editar
+      });
 
-    if (status === "Por hacer") {
-      todo.appendChild(card);
-    } else if (status === "Haciendo") {
-      doing.appendChild(card);
-    } else if (status === "Hecho") {
-      done.appendChild(card);
-    }
-  });
-}
+      // 🔹 (El botón eliminar lo harás después)
+
+      // Colocar la tarjeta en la columna correspondiente
+      const status = t.status;
+      if (status === "Por hacer") {
+        todo.appendChild(card);
+      } else if (status === "Haciendo") {
+        doing.appendChild(card);
+      } else if (status === "Hecho") {
+        done.appendChild(card);
+      }
+    });
+  }
 
   await loadTasks();
 });
