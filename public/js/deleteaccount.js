@@ -16,7 +16,7 @@
       }
 
       // Petición al backend 
-      const response = await fetch("http://localhost:3000/api/v1/users/me", {
+      const response = await fetch("https://demo-290a.onrender.com/api/v1/users/me", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

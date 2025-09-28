@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     // Petición al backend para traer datos del usuario
     // Request to backend to fetch user data
-    const res = await fetch("http://localhost:3000/api/v1/auth/me", {
+    const res = await fetch("https://demo-290a.onrender.com/api/v1/auth/me", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`, // Se envía el token en los headers
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     // Traemos los datos del usuario
     // Fetch user data
-    const res = await fetch("http://localhost:3000/api/v1/auth/me", {
+    const res = await fetch("https://demo-290a.onrender.com/api/v1/auth/me", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -126,7 +126,7 @@ document.getElementById("editProfileForm").addEventListener("submit", async (eve
   try {
     // Petición PUT al backend para actualizar perfil
     // PUT request to backend to update profile
-    const res = await fetch("http://localhost:3000/api/v1/users/me", {
+    const res = await fetch("https://demo-290a.onrender.com/api/v1/users/me", {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`,

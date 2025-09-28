@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         throw new Error("No se encontró el token de autenticación");
       }
 
-      const response = await fetch("http://localhost:3000/api/v1/tasks/mytasks", {
+      const response = await fetch("https://demo-290a.onrender.com/api/v1/tasks/mytasks", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         try {
           const token = localStorage.getItem("token"); // 🔹 Aquí lo obtienes de nuevo
-          const res = await fetch(`http://localhost:3000/api/v1/tasks/${t._id}`, {
+          const res = await fetch(`https://demo-290a.onrender.com/api/v1/tasks/${t._id}`, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",

@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // --- Precargar datos con un GET ---
   // --- Preload task data with a GET request ---
   try {
-    const res = await fetch(`http://localhost:3000/api/v1/tasks/${taskId}`, {
+    const res = await fetch(`https://demo-290a.onrender.com/api/v1/tasks/${taskId}`, {
       headers: {
         Authorization: `Bearer ${token}`, // Enviar token en los headers
                                          // Send token in headers
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       // Se envía una petición PUT al backend con los datos actualizados
       // Send a PUT request to backend with updated data
-      const res = await fetch(`http://localhost:3000/api/v1/tasks/${taskId}`, {
+      const res = await fetch(`https://demo-290a.onrender.com/api/v1/tasks/${taskId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
