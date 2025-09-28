@@ -19,24 +19,26 @@
     <!-- Header de la página -->
     <header class="header">
       <div class="header-left">
-        <!-- Botón menú hamburguesa -->
-        <div class="hamburger" id="hamburger">
-          ☰
-        </div>
-         <!-- Menú lateral hamburguesa -->
+        <!-- Botón hamburguesa -->
+        <span class="hamburger" id="hamburger">☰</span>
+
+        <!-- Menú lateral -->
         <nav class="side-menu" id="sideMenu">
+          <button class="close-btn" id="closeBtn">✖</button>
           <ul>
             <li><a href="#" onclick="goToProfile()">Perfil</a></li>
-            <li><a href="#" onclick="goToCreateTask()">Nueva Tarea</a></li>
-            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#" onclick="goToAboutUs()">Sobre nosotros</a></li>
+            <li><a href="#" onclick="goToDeleteAccount()">Eliminar cuenta</a></li>
             <li><a href="#" id="logout-btn">Cerrar sesión</a></li>
           </ul>
+
+          <!-- Reloj -->
+          <div class="clock" id="clock"></div>
         </nav>
-      
       </div>
 
       <!-- Título de la página -->
-      <h1 class="title">LISTA DE TAREAS</h1>
+      <h1 class="title">LISTA DE TAREAS</h1>    
 
       <!-- Logo de la aplicación -->
       <div class="logo">
@@ -47,7 +49,8 @@
     <!-- Barra de búsqueda -->
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="BUSCAR" class="search-input">
-      <button class="search-button">🔍</button>
+      <button class="btn-buscar">🔍</button>
+      <button class="btn-crear" href="#" onclick="goToCreateTask()">Nueva Tarea</button>
     </div>
 
     <!-- Tablero Kanban con tres columnas -->

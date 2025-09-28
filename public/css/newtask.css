@@ -57,11 +57,20 @@ body{
   align-items:center;
   gap:12px;
   text-align:center;
+  justify-content: space-between;
 }
 
 /* =============================
    BRAND (Logo y nombre)
    ============================= */
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
 .brand img{
   width:86px;
   height:86px;

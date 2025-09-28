@@ -15,15 +15,18 @@
 </head>
 <body>
   <div class="frame">
-    <!-- Sidebar con logo y descripción de la app -->
+    <!-- Sidebar con logo, descripción y botón de volver -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="LOGO EMPRESA.png" alt="Logo empresa">
+        <img src="../previews/todolist.png" alt="Logo empresa">
         <div>
           <h1>ListUp</h1>
-          <p>Gestión y tareas</p>
+          <p>Eliminación de cuenta</p>
         </div>
       </div>
+
+      <!-- Botón de volver al inicio -->
+      <a href="tasks.html" class="btn-back">← Volver al inicio</a>
     </aside>
 
     <!-- Área principal donde se muestra el contenido de eliminación de cuenta -->
@@ -56,29 +59,6 @@
       <button onclick="closeModal()">Cerrar</button>
     </div>
   </div>
-
-  <!-- Script de funcionalidad -->
-  <script>
-    // Función para manejar la eliminación de cuenta
-    function deleteAccount() {
-      const password = document.getElementById('password').value; // Captura la contraseña
-      const confirmText = document.getElementById('confirmText').value; // Captura el texto de confirmación
-
-      // Verifica que se haya ingresado la contraseña y se haya escrito "ELIMINAR"
-      if (password && confirmText === "ELIMINAR") {
-        // Muestra el modal de éxito
-        document.getElementById('successModal').style.display = 'flex';
-      } else {
-        // Alerta al usuario si falta algún dato
-        alert("Debes ingresar tu contraseña y escribir 'ELIMINAR' para confirmar.");
-      }
-    }
-
-    // Función para cerrar el modal y redirigir al usuario a la página de tareas
-    function closeModal() {
-      document.getElementById('successModal').style.display = 'none';
-      window.location.href = "tasks.html";
-    }
-  </script>
+  <script src="../js/deleteaccount.js"></script>
 </body>
 </html>

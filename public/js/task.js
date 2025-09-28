@@ -6,20 +6,40 @@ function editTask(button) {
 
 // Funcion para los botones perfil y nueva tarea
 
-//Funcion para el menu hamburguesa
-  const hamburger = document.getElementById("hamburger");
-  const sideMenu = document.getElementById("sideMenu");
-  let menuOpen = false;
+// =============================
+// MENU HAMBURGUESA
+// =============================
+const hamburger = document.getElementById("hamburger");
+const sideMenu = document.getElementById("sideMenu");
+const closeBtn = document.getElementById("closeBtn");
 
-  hamburger.addEventListener("click", () => {
-    if (!menuOpen) {
-      sideMenu.style.width = "250px"; // Abre el menú
-      menuOpen = true;
-    } else {
-      sideMenu.style.width = "0"; // Cierra el menú
-      menuOpen = false;
-    }
-  });
+hamburger.addEventListener("click", () => {
+  sideMenu.style.width = "260px"; // abre el menú
+});
+
+closeBtn.addEventListener("click", () => {
+  sideMenu.style.width = "0"; // cierra el menú
+});
+
+  // =============================
+  // RELOJ EN VIVO
+  // =============================
+  function updateClock() {
+    const clock = document.getElementById("clock");
+    const now = new Date();
+
+    const options = { weekday: "long", day: "numeric", month: "short" };
+    const time = now.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
+    const date = now.toLocaleDateString("es-ES", options);
+
+    clock.innerHTML = `
+      <div style="font-size:20px; font-weight:700;">${time}</div>
+      <div style="font-size:14px;">${date}</div>
+    `;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
 
 // Función para redirigir al perfil
 function goToProfile() {
@@ -30,7 +50,14 @@ function goToProfile() {
 function goToCreateTask() {
   window.location.href = "newtask.html"; // cámbialo por la ruta real
 }
-
+//funcion para redirigir a eliminar cuenta
+function goToDeleteAccount() {
+  window.location.href = "deleteaccount.html"; // cámbialo por la ruta real
+}
+//funcion para redirir a sobre nosotros
+function goToAboutUs() {
+  window.location.href = "aboutus.html"; // cámbialo por la ruta real
+}
 
 // Función de búsqueda básica
 document.getElementById("searchInput").addEventListener("input", (e) => {
@@ -50,6 +77,8 @@ document.getElementById("searchInput").addEventListener("input", (e) => {
   })
 })
 
+
+
 // funcion para mostrar las tareas
 document.addEventListener("DOMContentLoaded", async () => {
   async function loadTasks() {
@@ -60,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         throw new Error("No se encontró el token de autenticación");
       }
 
-      const response = await fetch("https://demo-290a.onrender.com/api/v1/tasks/mytasks", {
+      const response = await fetch("http://localhost:3000/api/v1/tasks/mytasks", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -95,20 +124,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       const card = document.createElement("div");
       card.className = "task-card";
       card.innerHTML = `
-        <div class="task-header">
-          <span>${t.title}</span>
-          <span class="task-status">${t.status}</span>
-        </div>
-        <div class="task-detail">${t.detail || ""}</div>
-        <div class="task-date">
-          ${t.date ? new Date(t.date).toLocaleDateString("es-ES") : "Sin fecha"} 
-          ${t.time || ""}
-        </div>
-        <div class="task-actions">
-          <button class="btn-editar" title="Editar">Editar</button>
-          <button class="btn-eliminar" title="Eliminar">Eliminar</button>
-        </div>
-      `;
+      <div class="task-title"><strong>Título:</strong> ${t.title}</div>
+      <div class="task-detail"><strong>Detalle:</strong> ${t.detail || "Sin detalle"}</div>
+      <div class="task-status"><strong>Estado:</strong> ${t.status}</div>
+      <div class="task-date"><strong>Fecha:</strong> ${t.date ? new Date(t.date).toLocaleDateString("es-ES") : "Sin fecha"}</div>
+      <div class="task-time"><strong>Hora:</strong> ${t.time || "Sin hora"}</div>
+      <div class="task-actions">
+        <button class="btn-editar" title="Editar">✏️ Editar</button>
+        <button class="btn-eliminar" title="Eliminar">🗑️ Eliminar</button>
+      </div>
+    `;
+
 
       // 🔹 Seleccionamos el botón de editar dentro de la card
       const botonEditar = card.querySelector(".btn-editar");
@@ -117,7 +143,36 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.href = "editasks.html"; // redirigimos a la página de editar
       });
 
-      // 🔹 (El botón eliminar lo harás después)
+      // 🔹 Seleccionamos el botón de eliminar dentro de la card
+      const botonEliminar = card.querySelector(".btn-eliminar");
+      botonEliminar.addEventListener("click", async () => {
+        const confirmar = confirm("¿Seguro que deseas eliminar esta tarea?");
+        if (!confirmar) return;
+
+        try {
+          const token = localStorage.getItem("token"); // 🔹 Aquí lo obtienes de nuevo
+          const res = await fetch(`http://localhost:3000/api/v1/tasks/${t._id}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+          });
+
+          if (res.status === 204) {
+            card.remove();
+            alert("✅ Tarea eliminada con éxito");
+          } else {
+            const data = await res.json().catch(() => ({}));
+            alert(data.message || "❌ Error al eliminar la tarea");
+          }
+        } catch (err) {
+          console.error("Error eliminando tarea:", err.message || err);
+          alert("⚠️ No se pudo conectar con el servidor");
+        }
+      });
+
+
 
       // Colocar la tarjeta en la columna correspondiente
       const status = t.status;

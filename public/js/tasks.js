@@ -9,26 +9,31 @@ document.addEventListener("DOMContentLoaded", () => {
       // Capturamos los valores del formulario
       const titulo = document.getElementById("titulo").value.trim();
       const detalle = document.getElementById("detalle").value.trim();
+      const fecha = document.getElementById("fecha").value; // yyyy-mm-dd
+      const hora = document.getElementById("hora").value;   // HH:mm
       const estado = document.getElementById("estado").value;
+      
 
       // Validación básica
-      if (!titulo || !detalle  || !estado) {
+      if (!titulo || !detalle || !fecha || !hora || !estado) {
         alert("Por favor completa todos los campos");
         return;
       }
- //http://localhost:3000
- //https://demo-290a.onrender.com
+
       try {
-        const response = await fetch("https://demo-290a.onrender.com/api/v1/tasks", {
+        const response = await fetch("http://localhost:3000/api/v1/tasks", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem("token")}` // si el backend requiere token
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
           },
           body: JSON.stringify({
             title: titulo,
             detail: detalle,
+            date: fecha,
+            time: hora,
             status: estado
+            
           })
         });
 
@@ -36,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {
           alert("Tarea creada ✅");
-          window.location. href="../pages/tasks.html";
-          formTarea.reset(); // limpiar formulario
+          window.location.href = "../pages/tasks.html";
+          formTarea.reset();
         } else {
           alert(data.message || "Error al crear la tarea ❌");
         }
@@ -48,3 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+//http://localhost:3000
+ //https://demo-290a.onrender.com
