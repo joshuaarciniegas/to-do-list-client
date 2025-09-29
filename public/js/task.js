@@ -53,7 +53,7 @@ function updateClock() {
     hour: "2-digit",
     minute: "2-digit",
   });
-  const date = now.toLocaleDateString("es-ES", options);
+  const date = now.toLocaleDateString("en-EN", options);
 
   clock.innerHTML = `
       <div style="font-size:20px; font-weight:700;">${time}</div>
