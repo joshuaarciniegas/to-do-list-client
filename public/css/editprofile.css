@@ -1,11 +1,17 @@
-/* =============================
-   VARIABLES GLOBALES
-   ============================= */
+/**
+ * ============================================
+ * GLOBAL VARIABLES
+ * --------------------------------------------
+ * Defines the main color palette, typography,
+ * and global shadow styles used throughout
+ * the UI.
+ * ============================================
+ */
 :root{
-  --cherish:#E1CCC7;       /* Sidebar */
-  --rosegold:#BE9485;      /* Botones */
-  --nude-blush:#E1C2B7;    /* Secundario */
-  --bridal-white:#F5EEE8;  /* Fondo tarjetas */
+  --cherish:#E1CCC7;       /* Sidebar background */
+  --rosegold:#BE9485;      /* Buttons */
+  --nude-blush:#E1C2B7;    /* Secondary accents */
+  --bridal-white:#F5EEE8;  /* Card backgrounds */
 
   --text:#2f2725;               
   --muted:rgba(47,39,37,0.68);
@@ -13,9 +19,14 @@
   --shadow:0 12px 40px rgba(46,38,35,0.08);
 }
 
-/* =============================
-   RESET Y GENERAL
-   ============================= */
+/**
+ * ============================================
+ * RESET & BASE STYLES
+ * --------------------------------------------
+ * Removes browser defaults and defines
+ * the body layout, font, and background.
+ * ============================================
+ */
 *{box-sizing:border-box}
 
 body{
@@ -29,9 +40,14 @@ body{
   padding:28px;
 }
 
-/* =============================
-   CONTENEDOR
-   ============================= */
+/**
+ * ============================================
+ * MAIN CONTAINER
+ * --------------------------------------------
+ * Grid layout for sidebar + main content.
+ * Rounded corners and soft background.
+ * ============================================
+ */
 .frame{
   width:980px;
   max-width:96vw;
@@ -43,9 +59,14 @@ body{
   background:rgba(255,255,255,0.95);
 }
 
-/* =============================
-   SIDEBAR
-   ============================= */
+/**
+ * ============================================
+ * SIDEBAR
+ * --------------------------------------------
+ * Vertical sidebar with branding and content.
+ * Uses flexbox for alignment and spacing.
+ * ============================================
+ */
 .sidebar{
   padding:28px;
   background:linear-gradient(180deg,var(--cherish),var(--nude-blush));
@@ -83,9 +104,14 @@ body{
   color:var(--muted);
 }
 
-/* =============================
-   MAIN
-   ============================= */
+/**
+ * ============================================
+ * MAIN AREA
+ * --------------------------------------------
+ * Contains the primary card with content
+ * or forms.
+ * ============================================
+ */
 .main{
   padding:36px;
   display:flex;
@@ -107,9 +133,15 @@ h2{
   font-size:20px;
 }
 
-/* =============================
-   FORMULARIO
-   ============================= */
+/**
+ * ============================================
+ * FORM
+ * --------------------------------------------
+ * Grid-based form with labels and inputs.
+ * Includes hover/focus interactions for
+ * better user experience.
+ * ============================================
+ */
 form{
   display:grid;
   grid-template-columns:1fr;
@@ -143,11 +175,17 @@ input:focus{
   box-shadow:0 0 6px rgba(190,148,133,0.6);
 }
 
-/* =============================
-   BOTONES (aplica tanto a .btn como a .btn-guardar/.btn-cancelar)
-   ============================= */
+/**
+ * ============================================
+ * BUTTONS
+ * --------------------------------------------
+ * Styles for .btn, .btn-guardar, and
+ * .btn-cancelar. Includes hover, active,
+ * and focus states.
+ * ============================================
+ */
 
-/* contenedores (para compatibilidad con HTML que use .buttons o .button-group) */
+/* Containers for button groups */
 .buttons,
 .button-group {
   display:flex;
@@ -155,7 +193,7 @@ input:focus{
   flex-wrap:wrap;
 }
 
-/* estilos base aplicados a .btn y a las clases específicas */
+/* Base styles for all buttons */
 .btn,
 .btn-guardar,
 .btn-cancelar {
@@ -171,7 +209,7 @@ input:focus{
   box-shadow: var(--btn-shadow);
 }
 
-/* hover: desplazamiento hacia arriba */
+/* Hover state */
 .btn:hover,
 .btn-guardar:hover,
 .btn-cancelar:hover {
@@ -180,7 +218,7 @@ input:focus{
   box-shadow: 0 10px 22px rgba(190,148,133,0.28);
 }
 
-/* active: hundimiento + ligera escala (feedback de "presionar") */
+/* Active (pressed) state */
 .btn:active,
 .btn-guardar:active,
 .btn-cancelar:active {
@@ -189,16 +227,22 @@ input:focus{
   box-shadow: 0 4px 12px rgba(190,148,133,0.22);
 }
 
-/* focus: anillo suave */
+/* Focus (keyboard navigation) */
 .btn:focus,
 .btn-guardar:focus,
 .btn-cancelar:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(190,148,133,0.4);
 }
-/* =============================
-   BOTÓN VOLVER (blanco)
-   ============================= */
+
+/**
+ * ============================================
+ * BACK BUTTON (White style)
+ * --------------------------------------------
+ * Secondary navigation button for returning.
+ * Distinct from main action buttons.
+ * ============================================
+ */
 .btn-back{
   display:inline-block;
   padding:10px 16px;
@@ -217,13 +261,19 @@ input:focus{
   box-shadow:0 10px 22px rgba(0,0,0,0.15);
 }
 .btn-back:active{
-  transform:translateY(1px); /* ✅ efecto de hundimiento */
+  transform:translateY(1px); /* Press effect */
   box-shadow:0 3px 8px rgba(0,0,0,0.12);
 }
 
-/* =============================
-   RESPONSIVE
-   ============================= */
+/**
+ * ============================================
+ * RESPONSIVE DESIGN
+ * --------------------------------------------
+ * Adjusts layout for smaller screens,
+ * collapsing sidebar and reducing
+ * padding on cards.
+ * ============================================
+ */
 @media(max-width:800px){
   .frame{
     grid-template-columns:1fr;

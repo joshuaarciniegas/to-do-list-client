@@ -1,19 +1,27 @@
 :root {
-  /* Colores principales de la app */
-  --cherish: #E1CCC7;       /* Color de fondo superior sidebar */
-  --rosegold: #BE9485;      /* Color principal de botones */
-  --nude-blush: #E1C2B7;    /* Color secundario sidebar */
-  --bridal-white: #F5EEE8;  /* Fondo de las tarjetas */
+  /* =============================
+     GLOBAL COLOR VARIABLES
+     ============================= */
+  --cherish: #E1CCC7;       /* Top sidebar background */
+  --rosegold: #BE9485;      /* Primary button color */
+  --nude-blush: #E1C2B7;    /* Secondary sidebar background */
+  --bridal-white: #F5EEE8;  /* Card and main background */
 
-  /* Colores de texto */
-  --text: #2f2725;          /* Texto principal */
-  --muted: rgba(47,39,37,0.68); /* Texto secundario */
+  /* =============================
+     TEXT COLORS
+     ============================= */
+  --text: #2f2725;          /* Main text color */
+  --muted: rgba(47,39,37,0.68); /* Secondary/less emphasized text */
 
-  /* Sombra general */
+  /* =============================
+     GENERAL SHADOW
+     ============================= */
   --shadow: 0 12px 40px rgba(46,38,35,0.08);
 }
 
-/* Reset básico */
+/* =============================
+   BASE RESET & GENERAL STYLES
+   ============================= */
 body {
   font-family: Arial, sans-serif;
   background-color: var(--bridal-white);
@@ -22,11 +30,17 @@ body {
   padding: 20px;
 }
 
+/* =============================
+   HEADINGS
+   ============================= */
 h1 {
   text-align: center;
   color: var(--rosegold);
 }
 
+/* =============================
+   LISTS
+   ============================= */
 ul {
   list-style: none;
   padding: 0;
@@ -36,19 +50,26 @@ li {
   margin: 10px 0;
 }
 
+/* =============================
+   LINKS (Styled as Buttons)
+   ============================= */
 a {
   text-decoration: none;
-  color: var(--bridal-white);   /* Texto claro */
-  background-color: var(--rosegold); /* Botón principal */
+  color: var(--bridal-white);        /* Light text */
+  background-color: var(--rosegold); /* Primary button background */
   padding: 5px 10px;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
+/* Hover effect for links */
 a:hover {
-  background-color: var(--cherish); /* Cambio suave al pasar el mouse */
+  background-color: var(--cherish); /* Smooth color change */
 }
 
+/* =============================
+   CONTAINER
+   ============================= */
 .container {
   max-width: 600px;
   margin: auto;

@@ -1,6 +1,11 @@
-/* =============================
-   VARIABLES GLOBALES
-   ============================= */
+/**
+ * ============================================
+ * GLOBAL VARIABLES
+ * --------------------------------------------
+ * Defines the color palette, text styles,
+ * shadows, and global transitions.
+ * ============================================
+ */
 :root{
   --cherish:#E1CCC7;
   --rosegold:#BE9485;
@@ -14,34 +19,49 @@
   --transition:all .25s ease;
 }
 
-/* =============================
-   RESET GENERAL
-   ============================= */
+/**
+ * ============================================
+ * GLOBAL RESET
+ * --------------------------------------------
+ * Removes default browser styles and sets
+ * base font, background, and layout rules.
+ * ============================================
+ */
 *{box-sizing:border-box}
 html, body {
   margin:0;
   padding:0;
-  overflow-x:hidden; /* ✅ evita scroll lateral */
+  overflow-x:hidden; /* Prevents horizontal scrolling */
   font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
   background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%);
   color:var(--text);
   height:100%;
 }
 
-/* =============================
-   BODY
-   ============================= */
+/**
+ * ============================================
+ * BODY
+ * --------------------------------------------
+ * Defines overall body layout with flexbox,
+ * ensuring full screen height and padding.
+ * ============================================
+ */
 body{
   display:flex;
   justify-content:center;
   padding:28px;
-  min-height:100vh;       /* ✅ asegura ocupar toda la pantalla */
-  align-items:flex-start; /* ✅ arranca desde arriba, no centrado */
+  min-height:100vh;       /* Ensures full screen height */
+  align-items:flex-start; /* Aligns content at the top */
 }
 
-/* =============================
-   CONTENEDOR PRINCIPAL
-   ============================= */
+/**
+ * ============================================
+ * MAIN CONTAINER
+ * --------------------------------------------
+ * Defines the frame layout using CSS grid,
+ * with sidebar and main content areas.
+ * ============================================
+ */
 .frame{
   width:980px;
   max-width:96vw;
@@ -51,12 +71,17 @@ body{
   grid-template-columns:300px 1fr;
   box-shadow:var(--shadow);
   background:rgba(255,255,255,0.95);
-  min-height:90vh; /* ✅ asegura altura visible */
+  min-height:90vh; /* Ensures visible height */
 }
 
-/* =============================
-   SIDEBAR
-   ============================= */
+/**
+ * ============================================
+ * SIDEBAR
+ * --------------------------------------------
+ * Vertical sidebar with branding and navigation.
+ * Uses gradient background and flexbox.
+ * ============================================
+ */
 .sidebar{
   padding:28px;
   background:linear-gradient(180deg,var(--cherish),var(--nude-blush));
@@ -68,16 +93,21 @@ body{
   justify-content: space-between;
 }
 
-/* =============================
-   BRAND
-   ============================= */
+/**
+ * ============================================
+ * BRAND
+ * --------------------------------------------
+ * Logo, title, and description displayed
+ * inside the sidebar.
+ * ============================================
+ */
 .brand {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 12px;
-  max-width: 100%; /* ✅ no se desborda */
+  max-width: 100%; /* Prevents overflow */
 }
 
 .brand img{
@@ -100,9 +130,15 @@ body{
   color:var(--muted);
 }
 
-/* =============================
-   BOTÓN VOLVER (blanco)
-   ============================= */
+/**
+ * ============================================
+ * BACK BUTTON
+ * --------------------------------------------
+ * Reusable button style for returning to
+ * previous pages. Includes hover/active/focus
+ * states for accessibility and interaction.
+ * ============================================
+ */
 .btn-back{
   display:inline-block;
   padding:10px 16px;
@@ -128,9 +164,14 @@ body{
   box-shadow:0 0 0 3px rgba(190,148,133,0.4);
 }
 
-/* =============================
-   ÁREA PRINCIPAL
-   ============================= */
+/**
+ * ============================================
+ * MAIN CONTENT AREA
+ * --------------------------------------------
+ * Displays the primary content card within
+ * the frame layout.
+ * ============================================
+ */
 .main{
   padding:36px;
   display:flex;
@@ -138,9 +179,15 @@ body{
   justify-content:center;
 }
 
-/* =============================
-   TARJETA PRINCIPAL
-   ============================= */
+/**
+ * ============================================
+ * MAIN CARD
+ * --------------------------------------------
+ * Central card container for forms or
+ * content. Uses soft shadows and rounded
+ * corners for a modern UI.
+ * ============================================
+ */
 .card{
   width:100%;
   max-width:560px;
@@ -150,15 +197,21 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.04);
 }
 
-/* Encabezados */
+/* Headings inside the card */
 h2{
   margin:0 0 8px 0;
   font-size:20px;
 }
 
-/* =============================
-   FORMULARIO
-   ============================= */
+/**
+ * ============================================
+ * FORM
+ * --------------------------------------------
+ * Grid-based form with labels, inputs,
+ * select, and textarea. Includes focus
+ * states for accessibility.
+ * ============================================
+ */
 form{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -173,13 +226,13 @@ label{
   margin-top:8px;
 }
 
-/* ✅ Todos los campos a ancho completo */
+/* Form elements (text, date, time, select, textarea) */
 input[type="text"], 
 input[type="date"], 
 input[type="time"], 
 select,
 textarea {
-  grid-column: span 2;   /* 🔹 ocupa las 2 columnas */
+  grid-column: span 2;
   width:100%;
   padding:12px;
   border-radius:10px;
@@ -190,7 +243,7 @@ textarea {
   transition:border 0.3s, box-shadow 0.3s;
 }
 
-/* ✅ efecto focus */
+/* Focus state for inputs */
 input[type="text"]:focus, 
 input[type="date"]:focus, 
 input[type="time"]:focus, 
@@ -201,9 +254,14 @@ textarea:focus {
   outline: none;
 }
 
-/* =============================
-   BOTÓN GUARDAR / ACTUALIZAR
-   ============================= */
+/**
+ * ============================================
+ * SAVE / UPDATE BUTTON
+ * --------------------------------------------
+ * Main action button for submitting forms.
+ * Includes hover, active, and focus states.
+ * ============================================
+ */
 .btn-guardar{
   grid-column:span 2;
   padding:12px;
@@ -217,27 +275,30 @@ textarea:focus {
   transition:var(--transition);
 }
 
-/* Hover */
 .btn-guardar:hover{
   background-color:#a9786a;
   transform:translateY(-2px);
 }
 
-/* Active */
 .btn-guardar:active{
   background-color:#8c5f53;
   transform:scale(0.97);
 }
 
-/* Focus */
 .btn-guardar:focus{
   outline:none;
   box-shadow:0 0 0 3px rgba(190,148,133,0.4);
 }
 
-/* =============================
-   RESPONSIVE
-   ============================= */
+/**
+ * ============================================
+ * RESPONSIVE DESIGN
+ * --------------------------------------------
+ * Adjusts the layout for smaller screens,
+ * collapsing the sidebar and adapting
+ * form fields to a single-column design.
+ * ============================================
+ */
 @media(max-width:800px){
   .frame{
     grid-template-columns:1fr;
@@ -248,7 +309,7 @@ textarea:focus {
     justify-content:space-between;
     gap:12px;
     padding:20px;
-    overflow-x:auto; /* ✅ si no cabe, se desliza */
+    overflow-x:auto; /* Allows horizontal scroll if needed */
   }
   .brand{
     flex-direction:row;
@@ -263,7 +324,7 @@ textarea:focus {
   }
   .card{
     padding:20px;
-    max-width:100%; /* ✅ no se desborda */
+    max-width:100%;
   }
   form{
     grid-template-columns:1fr;

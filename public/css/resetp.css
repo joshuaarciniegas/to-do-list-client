@@ -1,49 +1,49 @@
 /* =============================
-   VARIABLES GLOBALES
+   GLOBAL VARIABLES
    ============================= */
 :root{
-  /* Colores principales de la app */
-  --cherish:#E1CCC7;        /* Color superior del sidebar */
-  --rosegold:#BE9485;       /* Color principal de botones */
-  --nude-blush:#E1C2B7;     /* Color secundario del sidebar */
-  --bridal-white:#F5EEE8;   /* Fondo de las tarjetas */
+  /* Main app colors */
+  --cherish:#E1CCC7;        /* Top sidebar background */
+  --rosegold:#BE9485;       /* Primary button color */
+  --nude-blush:#E1C2B7;     /* Secondary sidebar background */
+  --bridal-white:#F5EEE8;   /* Card background */
 
-  /* Colores de texto */
-  --text:#2f2725;           /* Texto principal */
-  --muted:rgba(47,39,37,0.68); /* Texto secundario */
+  /* Text colors */
+  --text:#2f2725;           /* Main text color */
+  --muted:rgba(47,39,37,0.68); /* Secondary text */
 
-  /* Sombra general */
+  /* General shadow */
   --shadow:0 12px 40px rgba(46,38,35,0.08);
 }
 
 /* =============================
-   RESET Y CONFIGURACIÓN GENERAL
+   RESET & GENERAL SETTINGS
    ============================= */
-*{box-sizing:border-box} /* Padding y borde no aumentan el tamaño total del elemento */
+*{box-sizing:border-box} /* Padding and border do not increase element size */
 
 body{
   margin:0;
-  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto; /* Tipografía */
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto; /* Typography */
   display:flex;
-  align-items:center;      /* Centrado vertical */
-  justify-content:center;  /* Centrado horizontal */
-  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Fondo degradado */
+  align-items:center;      /* Vertical centering */
+  justify-content:center;  /* Horizontal centering */
+  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Gradient background */
   color:var(--text);
-  padding:28px;            /* Espacio alrededor del contenido */
+  padding:28px;            /* Outer spacing */
 }
 
 /* =============================
-   CONTENEDOR PRINCIPAL
+   MAIN CONTAINER
    ============================= */
 .frame{
   width:980px;
-  max-width:96vw;                  /* Adaptable a pantallas pequeñas */
-  border-radius:16px;              /* Bordes redondeados */
-  overflow:hidden;                 /* Oculta overflow */
+  max-width:96vw;                  /* Responsive for small screens */
+  border-radius:16px;              /* Rounded corners */
+  overflow:hidden;                 /* Hide overflow */
   display:grid;
-  grid-template-columns:300px 1fr; /* Sidebar + contenido principal */
+  grid-template-columns:300px 1fr; /* Sidebar + main content */
   box-shadow:var(--shadow);
-  background:rgba(255,255,255,0.96); /* Fondo semitransparente */
+  background:rgba(255,255,255,0.96); /* Semi-transparent background */
 }
 
 /* =============================
@@ -51,7 +51,7 @@ body{
    ============================= */
 .sidebar{
   padding:28px;
-  background:linear-gradient(180deg,var(--cherish),var(--nude-blush)); /* Degradado */
+  background:linear-gradient(180deg,var(--cherish),var(--nude-blush)); /* Gradient */
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -60,7 +60,7 @@ body{
 }
 
 /* =============================
-   BRAND (Logo y nombre)
+   BRAND (Logo + Name)
    ============================= */
 .brand {
     display: flex;
@@ -75,22 +75,22 @@ body{
   height:86px;
   border-radius:12px;
   object-fit:contain;
-  box-shadow:0 8px 26px rgba(0,0,0,0.12); /* Sombra del logo */
+  box-shadow:0 8px 26px rgba(0,0,0,0.12); /* Logo shadow */
 }
 
 .brand h1{
   margin:0;
   font-size:20px;
-  font-weight:800; /* Negrita */
+  font-weight:800; /* Bold */
 }
 
 .brand p{
   margin:4px 0 0 0;
-  color:var(--muted); /* Texto secundario */
+  color:var(--muted); /* Secondary text */
 }
 
 /* =============================
-   ÁREA PRINCIPAL
+   MAIN AREA
    ============================= */
 .main{
   padding:36px;
@@ -100,7 +100,7 @@ body{
 }
 
 /* =============================
-   TARJETA PRINCIPAL
+   MAIN CARD
    ============================= */
 .card{
   width:100%;
@@ -113,7 +113,7 @@ body{
 }
 
 /* =============================
-   ENCABEZADOS
+   HEADINGS
    ============================= */
 h2{
   margin:0 0 8px 0;
@@ -121,7 +121,7 @@ h2{
 }
 
 /* =============================
-   FORMULARIOS
+   FORMS
    ============================= */
 form{
   display:flex;
@@ -140,11 +140,11 @@ input[type="password"]{
 }
 
 /* =============================
-   MENSAJES
+   MESSAGES
    ============================= */
 .error-message{
-  color:#d23f3f; /* Rojo para errores */
-  display:none;   /* Oculto por defecto */
+  color:#d23f3f; /* Red for errors */
+  display:none;  /* Hidden by default */
   margin:0;
 }
 
@@ -154,10 +154,10 @@ input[type="password"]{
 }
 
 /* =============================
-   BOTÓN SUBMIT (Restablecer contraseña)
+   SUBMIT BUTTON (Reset password)
    ============================= */
 button[type="submit"] {
-  width: 100%; /* Ocupa todo el ancho */
+  width: 100%; /* Full width */
   padding: 12px;
   border-radius: 10px;
   border: none;
@@ -187,16 +187,16 @@ button[type="submit"]:focus {
 }
 
 /* =============================
-   RESPONSIVE
+   RESPONSIVE DESIGN
    ============================= */
 @media(max-width:800px){
   .frame{
-    grid-template-columns:1fr; /* Sidebar arriba del contenido */
+    grid-template-columns:1fr; /* Sidebar above content */
   }
   .brand{
-    flex-direction:row;        /* Ajuste del logo y nombre */
+    flex-direction:row;        /* Adjust logo + name */
   }
   .card{
-    padding:20px;             /* Ajuste de padding en pantallas pequeñas */
+    padding:20px;             /* Adjust padding for small screens */
   }
 }

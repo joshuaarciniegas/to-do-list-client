@@ -1,49 +1,49 @@
 /* =============================
-   VARIABLES GLOBALES
+   GLOBAL VARIABLES
    ============================= */
 :root{
-  /* Paleta de colores */
-  --cherish:#E1CCC7;       /* Color principal sidebar */
-  --rosegold:#BE9485;      /* Color principal botones */
-  --nude-blush:#E1C2B7;    /* Color secundario sidebar */
-  --bridal-white:#F5EEE8;  /* Color de fondo tarjetas */
+  /* Color palette */
+  --cherish:#E1CCC7;       /* Sidebar main color */
+  --rosegold:#BE9485;      /* Buttons main color */
+  --nude-blush:#E1C2B7;    /* Sidebar secondary color */
+  --bridal-white:#F5EEE8;  /* Card background color */
 
-  /* Colores de texto */
-  --text:#2f2725;               /* Texto principal */
-  --muted:rgba(47,39,37,0.68);  /* Texto menos destacado */
+  /* Text colors */
+  --text:#2f2725;               /* Primary text */
+  --muted:rgba(47,39,37,0.68);  /* Secondary/Muted text */
 
-  /* Sombra general */
+  /* General shadow */
   --shadow:0 12px 40px rgba(46,38,35,0.08);
 }
 
 /* =============================
-   RESET Y CONFIGURACIÓN GENERAL
+   RESET & GENERAL SETTINGS
    ============================= */
-*{box-sizing:border-box} /* Padding y borde no aumentan el tamaño total del elemento */
+*{box-sizing:border-box} /* Padding and border are included in element size */
 
 body{
   margin:0;
   font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto;
   display:flex;
-  align-items:center;      /* Centrado vertical */
-  justify-content:center;  /* Centrado horizontal */
-  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Fondo degradado */
+  align-items:center;      /* Vertical centering */
+  justify-content:center;  /* Horizontal centering */
+  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Gradient background */
   color:var(--text);
-  padding:28px;            /* Espacio alrededor del contenido */
+  padding:28px;            /* Spacing around content */
 }
 
 /* =============================
-   CONTENEDOR PRINCIPAL
+   MAIN CONTAINER
    ============================= */
 .frame{
   width:980px;
-  max-width:96vw;             /* Para adaptarse a pantallas pequeñas */
+  max-width:96vw;             /* Fits smaller screens */
   border-radius:16px;
   overflow:hidden;
   display:grid;
-  grid-template-columns:300px 1fr; /* Sidebar + contenido principal */
+  grid-template-columns:300px 1fr; /* Sidebar + main content */
   box-shadow:var(--shadow);
-  background:rgba(255,255,255,0.95); /* Fondo semitransparente */
+  background:rgba(255,255,255,0.95); /* Semi-transparent background */
 }
 
 /* =============================
@@ -60,7 +60,7 @@ body{
 }
 
 /* =============================
-   BRAND (Logo y nombre)
+   BRAND (Logo & name)
    ============================= */
 .brand {
     display: flex;
@@ -86,11 +86,11 @@ body{
 
 .brand p{
   margin:4px 0 0 0;
-  color:var(--muted); /* Texto secundario */
+  color:var(--muted); /* Secondary text */
 }
 
 /* =============================
-   ÁREA PRINCIPAL
+   MAIN AREA
    ============================= */
 .main{
   padding:36px;
@@ -100,7 +100,7 @@ body{
 }
 
 /* =============================
-   TARJETA PRINCIPAL
+   MAIN CARD
    ============================= */
 .card{
   width:100%;
@@ -112,20 +112,20 @@ body{
   text-align:center;
 }
 
-/* Encabezados */
+/* Headings */
 h2{
   margin:0 0 8px 0;
   font-size:20px;
 }
 
 /* =============================
-   FORMULARIO
+   FORM
    ============================= */
 form{
   display:flex;
   flex-direction:column;
   gap:12px;
-  align-items:center; /* Centrado horizontal de los inputs */
+  align-items:center; /* Center inputs horizontally */
 }
 
 input[type="email"]{
@@ -137,17 +137,17 @@ input[type="email"]{
   font-size:14px;
 }
 
-/* Texto de información adicional */
+/* Additional info text */
 .info-text{
   color:var(--muted);
   font-size:14px;
 }
 
 /* =============================
-   BOTÓN SUBMIT (Restablecer contraseña)
+   SUBMIT BUTTON (Reset password)
    ============================= */
 button[type="submit"] {
-  width: 100%; /* Ocupa todo el ancho */
+  width: 100%; /* Full width */
   padding: 12px;
   border-radius: 10px;
   border: none;
@@ -158,26 +158,25 @@ button[type="submit"] {
   transition: all 0.25s ease;
 }
 
-/* Hover */
+/* Hover state */
 button[type="submit"]:hover {
   background-color: #a9786a;
   transform: translateY(-2px);
 }
 
-/* Active */
+/* Active state */
 button[type="submit"]:active {
   background-color: #8c5f53;
   transform: scale(0.97);
 }
 
-/* Focus */
+/* Focus state */
 button[type="submit"]:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(190,148,133,0.4);
 }
 
-
-/* Enlace de regreso a login */
+/* Back to login link */
 .back-login{
   display:inline-block;
   margin-top:12px;
@@ -185,13 +184,12 @@ button[type="submit"]:focus {
   text-decoration:none;
 }
 
-
 /* =============================
    RESPONSIVE
    ============================= */
 @media(max-width:800px){
   .frame{
-    grid-template-columns:1fr; /* Sidebar arriba del contenido principal */
+    grid-template-columns:1fr; /* Sidebar stacked on top */
   }
   .brand{
     flex-direction:row;

@@ -4,8 +4,6 @@ function editTask(button) {
   alert("Función de editar tarea - aquí puedes integrar tu lógica de edición")
 }
 
-// Funcion para los botones perfil y nueva tarea
-
 // =============================
 // MENU HAMBURGUESA
 // =============================
@@ -59,23 +57,27 @@ function goToAboutUs() {
   window.location.href = "aboutus.html"; // cámbialo por la ruta real
 }
 
-// Función de búsqueda básica
-document.getElementById("searchInput").addEventListener("input", (e) => {
-  const searchTerm = e.target.value.toLowerCase()
-  const taskCards = document.querySelectorAll(".task-card")
+// Esperar a que el DOM cargue
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("searchInput");
 
-  taskCards.forEach((card) => {
-    const title = card.querySelector(".task-title").textContent.toLowerCase()
-    const date = card.querySelector(".task-date").textContent.toLowerCase()
-    const description = card.querySelector(".task-description").textContent.toLowerCase()
+  searchInput.addEventListener("input", () => {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const taskCards = document.querySelectorAll(".task-card");
 
-    if (title.includes(searchTerm) || date.includes(searchTerm) || description.includes(searchTerm)) {
-      card.style.display = "block"
-    } else {
-      card.style.display = "none"
-    }
-  })
-})
+    taskCards.forEach((card) => {
+      // Solo buscamos por el título
+      const title = card.querySelector(".task-title")?.textContent.toLowerCase() || "";
+
+      if (title.includes(searchTerm)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+});
+
 
 
 

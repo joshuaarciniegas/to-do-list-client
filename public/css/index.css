@@ -1,28 +1,28 @@
 /* =============================
-   VARIABLES GLOBALES
+   GLOBAL VARIABLES
    ============================= */
 :root{
-  /* Paleta de colores */
-  --cherish:#E1CCC7;       /* Color principal de la sidebar */
-  --rosegold:#BE9485;      /* Color principal de botones y acentos */
-  --nude-blush:#E1C2B7;    /* Color secundario de la sidebar */
-  --bridal-white:#F5EEE8;  /* Color de fondo de las tarjetas */
+  /* Color palette */
+  --cherish:#E1CCC7;       /* Sidebar main color */
+  --rosegold:#BE9485;      /* Primary color for buttons and accents */
+  --nude-blush:#E1C2B7;    /* Sidebar secondary color */
+  --bridal-white:#F5EEE8;  /* Card background color */
 
-  /* Colores de texto */
-  --text:#2f2725;               /* Color principal del texto */
-  --muted:rgba(47,39,37,0.7);   /* Texto secundario o menos destacado */
+  /* Text colors */
+  --text:#2f2725;               /* Main text color */
+  --muted:rgba(47,39,37,0.7);   /* Secondary / muted text */
 
-  /* Sombra general */
+  /* General shadow */
   --shadow:0 12px 40px rgba(46,38,35,0.08);
 
-  /* Estados globales */
+  /* Global states */
   --hover-brightness:1.05;
   --active-scale:0.97;
   --focus-ring:0 0 0 2px rgba(190,148,133,0.25);
 }
 
 /* =============================
-   RESET Y CONFIGURACIÓN GENERAL
+   RESET & GENERAL SETTINGS
    ============================= */
 *{box-sizing:border-box}
 
@@ -35,11 +35,11 @@ body{
   align-items:center;
   justify-content:center;
   padding:28px;
-  line-height:1.5; /* Mejora legibilidad (heurística 8) */
+  line-height:1.5; /* Improves readability */
 }
 
 /* =============================
-   CONTENEDOR PRINCIPAL
+   MAIN CONTAINER
    ============================= */
 .frame{
   width:980px;
@@ -66,7 +66,7 @@ body{
 }
 
 /* =============================
-   BRAND (Logo y nombre)
+   BRAND (Logo & name)
    ============================= */
 .brand {
     display: flex;
@@ -96,7 +96,7 @@ body{
 }
 
 /* =============================
-   ÁREA PRINCIPAL
+   MAIN AREA
    ============================= */
 .main{
   padding:36px;
@@ -106,7 +106,7 @@ body{
 }
 
 /* =============================
-   TARJETA PRINCIPAL
+   MAIN CARD
    ============================= */
 .card{
   width:100%;
@@ -118,14 +118,14 @@ body{
   text-align:center;
 }
 
-/* Encabezados */
+/* Headings */
 h2{
   margin:0 0 8px 0;
   font-size:20px;
 }
 
 /* =============================
-   FORMULARIO
+   FORM
    ============================= */
 form{
   display:flex;
@@ -140,7 +140,7 @@ label{
   text-align:left;
 }
 
-/* Inputs generales */
+/* Generic inputs */
 input, textarea, select {
   width:100%;
   padding:12px;
@@ -150,7 +150,7 @@ input, textarea, select {
   font-size:14px;
 }
 
-/* 🔹 Estados de focus consistentes */
+/* 🔹 Focus states */
 input:focus, textarea:focus, select:focus {
   border-color: var(--rosegold);
   box-shadow: var(--focus-ring);
@@ -163,7 +163,7 @@ input:focus, textarea:focus, select:focus {
   opacity: 0.8;
 }
 
-/* Links dentro del formulario */
+/* Links inside the form */
 .links{
   display:flex;
   justify-content:space-between;
@@ -178,7 +178,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* =============================
-   BOTONES
+   BUTTONS
    ============================= */
 button, .btn {
   padding:12px;
@@ -189,7 +189,7 @@ button, .btn {
   border:none;
 }
 
-/* 🔹 Botón principal (el de "INGRESAR") */
+/* 🔹 Primary button (e.g. "LOGIN") */
 button[type="submit"], .btn-primary {
   width: 100%;
   padding: 12px;
@@ -204,40 +204,39 @@ button[type="submit"], .btn-primary {
   font-size: 14px;
 }
 
-/* Hover → se eleva */
+/* Hover → raised effect */
 button[type="submit"]:hover, .btn-primary:hover {
   background-color: #a9786a;
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(190,148,133,0.28);
 }
 
-/* Active → efecto de hundimiento */
+/* Active → pressed effect */
 button[type="submit"]:active, .btn-primary:active {
   background-color: #8c5f53;
   transform: translateY(1px) scale(0.97);
   box-shadow: 0 4px 12px rgba(190,148,133,0.22);
 }
 
-/* Focus → anillo de enfoque */
+/* Focus → focus ring */
 button[type="submit"]:focus, .btn-primary:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(190,148,133,0.4);
 }
 
-
-/* 🔹 Botón secundario */
+/* 🔹 Secondary button */
 .btn-secondary {
   background: var(--cherish);
   color: var(--text);
 }
 
-/* 🔹 Botón peligro (ej. eliminar) */
+/* 🔹 Danger button (e.g. delete) */
 .btn-danger {
   background:#d9534f;
   color:white;
 }
 
-/* Estados hover/active consistentes */
+/* Consistent hover/active states */
 button:hover, .btn:hover {
   filter:brightness(var(--hover-brightness));
   box-shadow:0 4px 12px rgba(0,0,0,0.1);
@@ -246,13 +245,13 @@ button:active, .btn:active {
   transform:scale(var(--active-scale));
 }
 
-/* 🔹 Flexibilidad con íconos en botones */
+/* 🔹 Buttons with icons */
 button i, .btn i {
   margin-right:6px;
 }
 
 /* =============================
-   MENSAJES (Errores, éxito, advertencias)
+   MESSAGES (Errors, success, warnings)
    ============================= */
 .message {
   font-size: 13px;
@@ -262,7 +261,7 @@ button i, .btn i {
 .message.success { color: #28a745; }
 .message.warning { color: #ff9800; }
 
-/* 🔹 Textos de ayuda (heurística 6) */
+/* 🔹 Helper text */
 .help-text {
   font-size: 12px;
   color: var(--muted);

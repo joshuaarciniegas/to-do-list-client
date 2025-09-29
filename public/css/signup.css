@@ -1,25 +1,25 @@
 /* =============================
-   VARIABLES GLOBALES
+   GLOBAL VARIABLES
    ============================= */
 :root{
-  /* Colores principales de la app */
+  /* Main app colors */
   --cherish:#E1CCC7;
   --rosegold:#BE9485;
   --nude-blush:#E1C2B7;
   --bridal-white:#F5EEE8;
 
-  /* Colores de texto */
+  /* Text colors */
   --text:#2f2725;
   --muted:rgba(47,39,37,0.68);
 
-  /* Sombra y transiciones */
+  /* Shadows & transitions */
   --shadow:0 12px 40px rgba(46,38,35,0.08);
   --btn-shadow:0 6px 18px rgba(190,148,133,0.18);
   --transition: all 0.25s ease;
 }
 
 /* =============================
-   RESET Y CONFIGURACIÓN GENERAL
+   RESET & GENERAL SETTINGS
    ============================= */
 *{box-sizing:border-box}
 html, body {
@@ -32,7 +32,7 @@ html, body {
   height:100%;
 }
 
-/* Evita que la página se "moche" arriba */
+/* Prevents top clipping on some screens */
 body{
   display:flex;
   justify-content:center;
@@ -42,7 +42,7 @@ body{
 }
 
 /* =============================
-   CONTENEDOR PRINCIPAL
+   MAIN CONTAINER
    ============================= */
 .frame{
   width:980px;
@@ -69,7 +69,9 @@ body{
   text-align:center;
 }
 
-/* BRAND */
+/* =============================
+   BRAND
+   ============================= */
 .brand{
   display:flex;
   flex-direction:column;
@@ -87,7 +89,7 @@ body{
 .brand p{ margin:4px 0 0 0; color:var(--muted); }
 
 /* =============================
-   ÁREA PRINCIPAL
+   MAIN AREA
    ============================= */
 .main{
   padding:36px;
@@ -97,7 +99,7 @@ body{
 }
 
 /* =============================
-   TARJETA PRINCIPAL
+   MAIN CARD
    ============================= */
 .card{
   width:100%;
@@ -111,11 +113,11 @@ body{
 h2{ margin:0 0 8px 0; font-size:20px; }
 
 /* =============================
-   FORMULARIO — ahora todo ocupa todo el ancho
+   FORM — full width inputs
    ============================= */
 form{
   display:grid;
-  grid-template-columns:1fr; /* <-- inputs ocupan 100% */
+  grid-template-columns:1fr; /* Inputs take 100% width */
   gap:12px;
 }
 
@@ -126,7 +128,7 @@ label{
   text-align:left;
 }
 
-/* Inputs / selects / textarea: idénticos a "nueva tarea" */
+/* Inputs / selects / textarea (consistent with "new task" view) */
 input, select, textarea{
   width:100%;
   padding:10px;
@@ -137,7 +139,7 @@ input, select, textarea{
   transition: var(--transition);
 }
 
-/* hover y focus en inputs (match con nueva tarea) */
+/* Hover & focus states (matching other views) */
 input:hover, select:hover, textarea:hover{
   border-color: var(--cherish);
 }
@@ -148,7 +150,8 @@ input:focus, select:focus, textarea:focus{
 }
 
 /* =============================
-   BOTÓN SUBMIT (Registro) — idéntico a btn-guardar / btn de otras vistas
+   SUBMIT BUTTON (Register) 
+   — same style as other "save" buttons
    ============================= */
 button[type="submit"]{
   width:100%;
@@ -164,28 +167,28 @@ button[type="submit"]{
   font-size:14px;
 }
 
-/* hover: desplazamiento hacia arriba */
+/* Hover → lift up */
 button[type="submit"]:hover{
   background-color:#a9786a;
   transform:translateY(-2px);
   box-shadow:0 10px 22px rgba(190,148,133,0.28);
 }
 
-/* active: hundimiento + ligera escala (feedback de presionar) */
+/* Active → press down + slight scale */
 button[type="submit"]:active{
   background-color:#8c5f53;
   transform:translateY(1px) scale(0.97);
   box-shadow:0 4px 12px rgba(190,148,133,0.22);
 }
 
-/* focus: anillo suave */
+/* Focus → soft ring */
 button[type="submit"]:focus{
   outline:none;
   box-shadow:0 0 0 3px rgba(190,148,133,0.4);
 }
 
 /* =============================
-   ENLACE "VOLVER A LOGIN" (si lo usas)
+   BACK TO LOGIN link (if used)
    ============================= */
 .back-login{
   display:inline-block;
@@ -194,9 +197,8 @@ button[type="submit"]:focus{
   margin-top:8px;
 }
 
-
 /* =============================
-   RESPONSIVE
+   RESPONSIVE DESIGN
    ============================= */
 @media(max-width:800px){
   .frame{ grid-template-columns:1fr; }

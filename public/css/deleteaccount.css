@@ -1,23 +1,27 @@
-/* =============================
-   VARIABLES GLOBALES
-   ============================= */
+/* ==================================================
+   Global Variables
+   Description:
+   Define color palette, typography colors, shadows,
+   and transitions used throughout the design system.
+   ================================================== */
 :root {
-  --cherish: #E1CCC7;
-  --rosegold: #BE9485;
-  --nude-blush: #E1C2B7;
-  --bridal-white: #F5EEE8;
+  --cherish: #E1CCC7;        /* Soft beige-pink */
+  --rosegold: #BE9485;       /* Rose gold accent */
+  --nude-blush: #E1C2B7;     /* Light blush color */
+  --bridal-white: #F5EEE8;   /* Warm off-white */
 
-  --text: #2f2725;
-  --muted: rgba(47,39,37,0.7);
+  --text: #2f2725;           /* Main text color */
+  --muted: rgba(47,39,37,0.7); /* Muted secondary text */
 
-  --shadow: 0 10px 30px rgba(46,38,35,0.12);
-  --transition: all 0.3s ease;
+  --shadow: 0 10px 30px rgba(46,38,35,0.12); /* Global shadow */
+  --transition: all 0.3s ease; /* Transition timing */
 }
 
-/* =============================
-   RESET Y BASE
-   ============================= */
+/* ==================================================
+   Reset and Base Styles
+   ================================================== */
 * { box-sizing: border-box; }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -34,9 +38,12 @@ body {
   background: linear-gradient(180deg, #fbf6f4 0%, #f7efea 100%);
 }
 
-/* =============================
-   CONTENEDOR PRINCIPAL
-   ============================= */
+/* ==================================================
+   Main Container
+   Description:
+   Frame for the full layout, containing sidebar and
+   main content area with responsive grid.
+   ================================================== */
 .frame {
   width: 1000px;
   max-width: 96vw;
@@ -48,9 +55,11 @@ body {
   background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
 }
 
-/* =============================
-   SIDEBAR
-   ============================= */
+/* ==================================================
+   Sidebar
+   Description:
+   Left panel containing branding and navigation.
+   ================================================== */
 .sidebar {
   background: linear-gradient(180deg, var(--cherish), var(--nude-blush));
   padding: 34px 28px;
@@ -59,6 +68,7 @@ body {
   justify-content: space-between;
 }
 
+/* Brand identity (logo + text) */
 .brand {
   display: flex;
   flex-direction: column;
@@ -66,7 +76,6 @@ body {
   text-align: center;
   gap: 12px;
 }
-
 .brand img {
   width: 80px;
   height: 80px;
@@ -75,23 +84,21 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   max-width: 100%;
 }
-
 .brand h1 {
   margin: 0;
   font-size: 22px;
   font-weight: 800;
 }
-
 .brand p {
   margin: 0;
   font-size: 14px;
   opacity: 0.9;
 }
 
-/* =============================
-   BOTÓN VOLVER (blanco)
-   ============================= */
-.btn-back{
+/* ==================================================
+   Back Button (White variant)
+   ================================================== */
+.btn-back {
   display:inline-block;
   padding:10px 16px;
   border-radius:10px;
@@ -104,18 +111,18 @@ body {
   border:1px solid rgba(0,0,0,0.06);
 }
 .btn-back:hover,
-.btn-back:focus{
+.btn-back:focus {
   transform:translateY(-3px);
   box-shadow:0 10px 22px rgba(0,0,0,0.15);
 }
-.btn-back:active{
-  transform:translateY(1px); /* ✅ efecto de hundimiento */
+.btn-back:active {
+  transform:translateY(1px); /* Pressed effect */
   box-shadow:0 3px 8px rgba(0,0,0,0.12);
 }
 
-/* =============================
-   ÁREA PRINCIPAL
-   ============================= */
+/* ==================================================
+   Main Area
+   ================================================== */
 .main {
   padding: 40px;
   display: flex;
@@ -123,9 +130,11 @@ body {
   justify-content: center;
 }
 
-/* =============================
-   TARJETA
-   ============================= */
+/* ==================================================
+   Card Component
+   Description:
+   Container for content such as forms or messages.
+   ================================================== */
 .card {
   background: var(--bridal-white);
   border-radius: 14px;
@@ -135,20 +144,18 @@ body {
   box-shadow: 0 12px 40px rgba(46,38,35,0.06);
   text-align: center;
 }
-
 .card h2 {
   margin: 0 0 10px 0;
   font-size: 22px;
 }
-
 .card p {
   margin: 0 0 20px 0;
   color: var(--muted);
 }
 
-/* =============================
-   INPUTS
-   ============================= */
+/* ==================================================
+   Form Inputs
+   ================================================== */
 .card input {
   width: 100%;
   padding: 12px;
@@ -160,25 +167,20 @@ body {
   outline: none;
   transition: var(--transition);
 }
-
-.card input:hover {
-  border-color: var(--rosegold);
-}
-
+.card input:hover { border-color: var(--rosegold); }
 .card input:focus {
   border-color: var(--rosegold);
   box-shadow: 0 0 0 3px rgba(190,148,133,0.25);
 }
 
-/* =============================
-   BOTONES
-   ============================= */
+/* ==================================================
+   Buttons
+   ================================================== */
 .buttons {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
-
 .btn {
   flex: 1;
   padding: 12px;
@@ -190,25 +192,24 @@ body {
   color: white;
   transition: var(--transition);
 }
-
 .btn:hover {
   background-color: #a9786a;
   transform: translateY(-2px);
 }
-
 .btn:active {
   background-color: #8c5f53;
   transform: scale(0.97);
 }
-
 .btn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(190,148,133,0.4);
 }
 
-/* =============================
-   MODAL
-   ============================= */
+/* ==================================================
+   Modal
+   Description:
+   Overlay and modal content for alerts or forms.
+   ================================================== */
 .modal {
   position: fixed;
   inset: 0;
@@ -218,7 +219,6 @@ body {
   background: rgba(0,0,0,0.4);
   backdrop-filter: blur(4px);
 }
-
 .modal-content {
   background: var(--bridal-white);
   padding: 24px;
@@ -228,16 +228,11 @@ body {
   max-width: 400px;
   box-shadow: 0 16px 50px rgba(0,0,0,0.25);
 }
-
-.modal-content h3 {
-  margin: 0 0 8px 0;
-}
-
+.modal-content h3 { margin: 0 0 8px 0; }
 .modal-content p {
   color: var(--muted);
   margin-bottom: 16px;
 }
-
 .modal-content button {
   padding: 10px 14px;
   border-radius: 10px;
@@ -248,29 +243,23 @@ body {
   cursor: pointer;
   transition: var(--transition);
 }
-
-.modal-content button:hover {
-  background-color: #a9786a;
-}
-
+.modal-content button:hover { background-color: #a9786a; }
 .modal-content button:active {
   background-color: #8c5f53;
   transform: scale(0.97);
 }
-
 .modal-content button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(190,148,133,0.4);
 }
 
-/* =============================
-   RESPONSIVE
-   ============================= */
+/* ==================================================
+   Responsive Adjustments
+   ================================================== */
 @media (max-width: 800px) {
   .frame {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Sidebar stacked on top */
   }
-
   .sidebar {
     flex-direction: row;
     align-items: center;
@@ -279,16 +268,11 @@ body {
     padding: 20px;
     overflow-x: auto;
   }
-
   .brand {
     flex-direction: row;
     text-align: left;
   }
-
-  .main {
-    padding: 20px;
-  }
-
+  .main { padding: 20px; }
   .card {
     max-width: 100%;
     padding: 20px;

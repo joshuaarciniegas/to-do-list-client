@@ -1,23 +1,23 @@
 /* =============================
-   VARIABLES GLOBALES
+   GLOBAL VARIABLES
    ============================= */
 :root{
-  /* Colores principales de la app */
-  --cherish:#E1CCC7;        /* Color de fondo superior sidebar */
-  --rosegold:#BE9485;       /* Color principal de botones */
-  --nude-blush:#E1C2B7;     /* Color secundario sidebar */
-  --bridal-white:#F5EEE8;   /* Color de fondo tarjetas */
+  /* Main app colors */
+  --cherish:#E1CCC7;        /* Top sidebar background */
+  --rosegold:#BE9485;       /* Primary button color */
+  --nude-blush:#E1C2B7;     /* Secondary sidebar background */
+  --bridal-white:#F5EEE8;   /* Card background color */
 
-  /* Colores de texto */
-  --text:#2f2725;           
-  --muted:rgba(47,39,37,0.68); 
+  /* Text colors */
+  --text:#2f2725;           /* Main text color */
+  --muted:rgba(47,39,37,0.68); /* Secondary/less emphasized text */
 
-  /* Sombra general */
+  /* General shadow */
   --shadow:0 12px 40px rgba(46,38,35,0.08);
 }
 
 /* =============================
-   RESET Y CONFIGURACIÓN GENERAL
+   RESET & GENERAL SETTINGS
    ============================= */
 *{box-sizing:border-box}
 
@@ -40,7 +40,7 @@ body{
 }
 
 /* =============================
-   CONTENEDOR PRINCIPAL
+   MAIN CONTAINER
    ============================= */
 .frame{
   width:980px;
@@ -69,7 +69,7 @@ body{
 }
 
 /* =============================
-   BRAND
+   BRAND (Logo + Title)
    ============================= */
 .brand {
   display: flex;
@@ -99,7 +99,7 @@ body{
 }
 
 /* =============================
-   ÁREA PRINCIPAL
+   MAIN AREA
    ============================= */
 .main{
   padding:36px;
@@ -109,7 +109,7 @@ body{
 }
 
 /* =============================
-   TARJETA PRINCIPAL
+   MAIN CARD
    ============================= */
 .card{
   width:100%;
@@ -126,11 +126,11 @@ h2{
 }
 
 /* =============================
-   FORMULARIO
+   FORM
    ============================= */
 form{
   display:grid;
-  grid-template-columns:1fr; /* ✅ ahora todo ocupa el ancho completo */
+  grid-template-columns:1fr; /* ✅ Ensures full width layout */
   gap:12px;
 }
 
@@ -150,7 +150,7 @@ input, select, textarea{
 }
 
 /* =============================
-   BOTÓN GUARDAR
+   SAVE BUTTON
    ============================= */
 .btn-guardar{
   padding:12px;
@@ -182,7 +182,7 @@ input, select, textarea{
 }
 
 /* =============================
-   BOTÓN VOLVER (blanco)
+   BACK BUTTON (white)
    ============================= */
 .btn-back{
   display:inline-block;
@@ -207,7 +207,7 @@ input, select, textarea{
 }
 
 /* =============================
-   RESPONSIVE
+   RESPONSIVE DESIGN
    ============================= */
 @media(max-width:800px){
   .frame{
