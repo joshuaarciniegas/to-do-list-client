@@ -345,3 +345,37 @@ body{
   color: var(--text);
   transform: scale(1.05);
 }
+
+/* Asegura que el body ocupe toda la altura */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* altura mínima de la ventana */
+  margin: 0;
+}
+
+/* El contenedor principal toma todo el espacio disponible */
+.container {
+  flex: 1;
+}
+
+/* Footer siempre al fondo */
+footer {
+  background-color: var(--cherish);
+  color: var(--text);
+  padding: 20px;
+  text-align: center;
+  width: 100%;   /* ocupa todo el ancho */
+  flex-shrink: 0; /* evita que se comprima */
+  box-sizing: border-box;
+}
+
+footer a {
+  color: var(--rosegold);
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

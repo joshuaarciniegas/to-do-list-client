@@ -2,48 +2,45 @@
    VARIABLES GLOBALES
    ============================= */
 :root{
-  /* Paleta de colores */
-  --cherish:#E1CCC7;       /* Color principal sidebar */
-  --rosegold:#BE9485;      /* Color principal botones */
-  --nude-blush:#E1C2B7;    /* Color secundario sidebar */
-  --bridal-white:#F5EEE8;  /* Color de fondo tarjetas */
+  --cherish:#E1CCC7;       /* Sidebar */
+  --rosegold:#BE9485;      /* Botones */
+  --nude-blush:#E1C2B7;    /* Secundario */
+  --bridal-white:#F5EEE8;  /* Fondo tarjetas */
 
-  /* Colores de texto */
-  --text:#2f2725;               /* Texto principal */
-  --muted:rgba(47,39,37,0.68);  /* Texto menos destacado */
+  --text:#2f2725;               
+  --muted:rgba(47,39,37,0.68);
 
-  /* Sombra general */
   --shadow:0 12px 40px rgba(46,38,35,0.08);
 }
 
 /* =============================
-   RESET Y CONFIGURACIÓN GENERAL
+   RESET Y GENERAL
    ============================= */
-*{box-sizing:border-box} /* Padding y borde no aumentan el tamaño total del elemento */
+*{box-sizing:border-box}
 
 body{
   margin:0;
   font-family:'Inter',system-ui, -apple-system, 'Segoe UI', Roboto;
   display:flex;
-  align-items:center;      /* Centrado vertical */
-  justify-content:center;  /* Centrado horizontal */
-  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Fondo degradado */
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%);
   color:var(--text);
-  padding:28px;            /* Espacio alrededor del contenido */
+  padding:28px;
 }
 
 /* =============================
-   CONTENEDOR PRINCIPAL
+   CONTENEDOR
    ============================= */
 .frame{
   width:980px;
-  max-width:96vw;             /* Para adaptarse a pantallas pequeñas */
+  max-width:96vw;
   display:grid;
-  grid-template-columns:300px 1fr; /* Sidebar + contenido principal */
+  grid-template-columns:300px 1fr;
   border-radius:16px;
   overflow:hidden;
   box-shadow:var(--shadow);
-  background:rgba(255,255,255,0.95); /* Fondo semitransparente */
+  background:rgba(255,255,255,0.95);
 }
 
 /* =============================
@@ -60,15 +57,11 @@ body{
   justify-content: space-between;
 }
 
-/* =============================
-   BRAND (Logo y nombre)
-   ============================= */
 .brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
 }
 
 .brand img{
@@ -86,12 +79,12 @@ body{
 }
 
 .brand p{
-  margin:4px 0 0 0;
-  color:var(--muted); /* Texto secundario */
+  margin:4px 0 0;
+  color:var(--muted);
 }
 
 /* =============================
-   ÁREA PRINCIPAL
+   MAIN
    ============================= */
 .main{
   padding:36px;
@@ -100,9 +93,6 @@ body{
   justify-content:center;
 }
 
-/* =============================
-   TARJETA PRINCIPAL
-   ============================= */
 .card{
   width:100%;
   max-width:560px;
@@ -112,7 +102,6 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.04);
 }
 
-/* Encabezados */
 h2{
   margin:0 0 8px 0;
   font-size:20px;
@@ -123,17 +112,17 @@ h2{
    ============================= */
 form{
   display:grid;
-  grid-template-columns:1fr; /* Dos columnas para inputs */
+  grid-template-columns:1fr;
   gap:12px;
 }
 
 label{
-  grid-column:span 2;        /* Las etiquetas ocupan dos columnas */
   font-size:13px;
   color:var(--muted);
   margin-top:8px;
 }
 
+/* -------- INPUTS -------- */
 input{
   width:100%;
   padding:10px;
@@ -141,36 +130,95 @@ input{
   border:1px solid rgba(0,0,0,0.06);
   background:rgba(255,255,255,0.95);
   font-size:14px;
+  transition:all 0.2s ease;
 }
 
-/* Grupo de botones (Guardar / Cancelar) */
-.button-group{
-  grid-column:span 2;         /* Ocupa las dos columnas del formulario */
+input:hover{
+  border:1px solid var(--cherish);
+}
+
+input:focus{
+  outline:none;
+  border:1px solid var(--rosegold);
+  box-shadow:0 0 6px rgba(190,148,133,0.6);
+}
+
+/* =============================
+   BOTONES (aplica tanto a .btn como a .btn-guardar/.btn-cancelar)
+   ============================= */
+
+/* contenedores (para compatibilidad con HTML que use .buttons o .button-group) */
+.buttons,
+.button-group {
   display:flex;
   gap:12px;
-  margin-top:8px;
+  flex-wrap:wrap;
 }
 
-.btn-guardar{
-  flex:1;
-  padding:12px;
-  border-radius:10px;
-  border:none;
-  background:linear-gradient(180deg,var(--rosegold),#a97566);
-  color:white;
-  font-weight:700;
-  cursor:pointer;
+/* estilos base aplicados a .btn y a las clases específicas */
+.btn,
+.btn-guardar,
+.btn-cancelar {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--rosegold);
+  color: white;
+  transition: var(--transition);
+  box-shadow: var(--btn-shadow);
 }
 
-.btn-cancelar{
-  flex:1;
-  padding:12px;
+/* hover: desplazamiento hacia arriba */
+.btn:hover,
+.btn-guardar:hover,
+.btn-cancelar:hover {
+  background-color: #a9786a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(190,148,133,0.28);
+}
+
+/* active: hundimiento + ligera escala (feedback de "presionar") */
+.btn:active,
+.btn-guardar:active,
+.btn-cancelar:active {
+  background-color: #8c5f53;
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 0 4px 12px rgba(190,148,133,0.22);
+}
+
+/* focus: anillo suave */
+.btn:focus,
+.btn-guardar:focus,
+.btn-cancelar:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(190,148,133,0.4);
+}
+/* =============================
+   BOTÓN VOLVER (blanco)
+   ============================= */
+.btn-back{
+  display:inline-block;
+  padding:10px 16px;
   border-radius:10px;
-  border:none;
-  background:linear-gradient(180deg,var(--rosegold),#a97566);
-  color:white;
-  font-weight:700;
-  cursor:pointer;
+  text-decoration:none;
+  background:#fff;
+  color:var(--text);
+  font-weight:600;
+  transition:all .25s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  border:1px solid rgba(0,0,0,0.06);
+}
+.btn-back:hover,
+.btn-back:focus{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(0,0,0,0.15);
+}
+.btn-back:active{
+  transform:translateY(1px); /* ✅ efecto de hundimiento */
+  box-shadow:0 3px 8px rgba(0,0,0,0.12);
 }
 
 /* =============================
@@ -178,21 +226,12 @@ input{
    ============================= */
 @media(max-width:800px){
   .frame{
-    grid-template-columns:1fr; /* Sidebar arriba del contenido principal */
+    grid-template-columns:1fr;
   }
   .brand{
     flex-direction:row;
   }
   .card{
     padding:20px;
-  }
-  form{
-    grid-template-columns:1fr; /* Formularios de una columna en móviles */
-  }
-  label{
-    grid-column:span 1;
-  }
-  .button-group{
-    grid-column:span 1;
   }
 }

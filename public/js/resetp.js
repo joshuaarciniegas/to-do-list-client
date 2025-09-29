@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         // Petición POST al endpoint de recuperación de contraseña
         // POST request to password recovery endpoint
-        const response = await fetch("https://demo-290a.onrender.com/api/v1/auth/forgot-password", {
+        const response = await fetch("http://localhost:3000/api/v1/auth/forgot-password", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email }),
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         // Petición POST al endpoint de restablecimiento de contraseña con el token
         // POST request to password reset endpoint with token
-        const response = await fetch(`https://demo-290a.onrender.com/api/v1/auth/reset-password/${token}`, {
+        const response = await fetch(`http://localhost:3000/api/v1/auth/reset-password/${token}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ password: newPass.value }),

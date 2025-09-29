@@ -14,22 +14,28 @@
 
   /* Sombra general */
   --shadow:0 12px 40px rgba(46,38,35,0.08);
+
+  /* Estados globales */
+  --hover-brightness:1.05;
+  --active-scale:0.97;
+  --focus-ring:0 0 0 2px rgba(190,148,133,0.25);
 }
 
 /* =============================
    RESET Y CONFIGURACIÓN GENERAL
    ============================= */
-*{box-sizing:border-box} /* Padding y borde no aumentan el tamaño total del elemento */
+*{box-sizing:border-box}
 
 body{
   margin:0;
   font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto;
-  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Fondo degradado vertical */
+  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%);
   color:var(--text);
   display:flex;
-  align-items:center;      /* Centra verticalmente la frame */
-  justify-content:center;  /* Centra horizontalmente la frame */
-  padding:28px;            /* Espacio alrededor del contenido */
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+  line-height:1.5; /* Mejora legibilidad (heurística 8) */
 }
 
 /* =============================
@@ -37,13 +43,13 @@ body{
    ============================= */
 .frame{
   width:980px;
-  max-width:96vw;             /* Para adaptarse a pantallas pequeñas */
+  max-width:96vw;
   border-radius:16px;
   overflow:hidden;
   display:grid;
-  grid-template-columns:320px 1fr; /* Sidebar + contenido principal */
+  grid-template-columns:320px 1fr;
   box-shadow:var(--shadow);
-  background:rgba(255,255,255,0.96); /* Fondo semitransparente */
+  background:rgba(255,255,255,0.96);
 }
 
 /* =============================
@@ -75,7 +81,7 @@ body{
   height:90px;
   border-radius:12px;
   object-fit:contain;
-  box-shadow:0 8px 26px rgba(0,0,0,0.12); /* Sombra del logo */
+  box-shadow:0 8px 26px rgba(0,0,0,0.12);
 }
 
 .brand h1{
@@ -86,7 +92,7 @@ body{
 
 .brand p{
   margin:4px 0 0 0;
-  color:var(--muted); /* Texto secundario */
+  color:var(--muted);
 }
 
 /* =============================
@@ -130,12 +136,12 @@ form{
 
 label{
   font-size:13px;
-  color:var(--muted); /* Texto menos destacado */
-  text-align:left;     /* Etiquetas alineadas a la izquierda */
+  color:var(--muted);
+  text-align:left;
 }
 
-/* Inputs de email y contraseña */
-input[type="email"], input[type="password"]{
+/* Inputs generales */
+input, textarea, select {
   width:100%;
   padding:12px;
   border-radius:10px;
@@ -144,12 +150,25 @@ input[type="email"], input[type="password"]{
   font-size:14px;
 }
 
+/* 🔹 Estados de focus consistentes */
+input:focus, textarea:focus, select:focus {
+  border-color: var(--rosegold);
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+/* 🔹 Placeholders */
+::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
 /* Links dentro del formulario */
 .links{
   display:flex;
   justify-content:space-between;
   gap:8px;
-  flex-wrap:wrap; /* Permite que se ajusten en móviles */
+  flex-wrap:wrap;
 }
 
 .links a{
@@ -158,15 +177,96 @@ input[type="email"], input[type="password"]{
   text-decoration:none;
 }
 
-/* Botón de enviar formulario */
-button[type="submit"]{
+/* =============================
+   BOTONES
+   ============================= */
+button, .btn {
   padding:12px;
   border-radius:10px;
-  border:none;
-  background:linear-gradient(180deg,var(--rosegold),#a97566);
-  color:white;
-  font-weight:700;
+  font-weight:600;
   cursor:pointer;
+  transition:all 0.2s ease;
+  border:none;
+}
+
+/* 🔹 Botón principal (el de "INGRESAR") */
+button[type="submit"], .btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: var(--rosegold);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(190,148,133,0.18);
+  font-size: 14px;
+}
+
+/* Hover → se eleva */
+button[type="submit"]:hover, .btn-primary:hover {
+  background-color: #a9786a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(190,148,133,0.28);
+}
+
+/* Active → efecto de hundimiento */
+button[type="submit"]:active, .btn-primary:active {
+  background-color: #8c5f53;
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 0 4px 12px rgba(190,148,133,0.22);
+}
+
+/* Focus → anillo de enfoque */
+button[type="submit"]:focus, .btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(190,148,133,0.4);
+}
+
+
+/* 🔹 Botón secundario */
+.btn-secondary {
+  background: var(--cherish);
+  color: var(--text);
+}
+
+/* 🔹 Botón peligro (ej. eliminar) */
+.btn-danger {
+  background:#d9534f;
+  color:white;
+}
+
+/* Estados hover/active consistentes */
+button:hover, .btn:hover {
+  filter:brightness(var(--hover-brightness));
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+button:active, .btn:active {
+  transform:scale(var(--active-scale));
+}
+
+/* 🔹 Flexibilidad con íconos en botones */
+button i, .btn i {
+  margin-right:6px;
+}
+
+/* =============================
+   MENSAJES (Errores, éxito, advertencias)
+   ============================= */
+.message {
+  font-size: 13px;
+  margin-top: 6px;
+}
+.message.error { color: #d9534f; }
+.message.success { color: #28a745; }
+.message.warning { color: #ff9800; }
+
+/* 🔹 Textos de ayuda (heurística 6) */
+.help-text {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: -6px;
 }
 
 /* =============================
@@ -174,7 +274,7 @@ button[type="submit"]{
    ============================= */
 @media(max-width:800px){
   .frame{
-    grid-template-columns:1fr; /* Sidebar arriba del contenido principal */
+    grid-template-columns:1fr;
   }
   .sidebar{
     flex-direction:row;

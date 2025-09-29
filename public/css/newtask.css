@@ -9,8 +9,8 @@
   --bridal-white:#F5EEE8;   /* Color de fondo tarjetas */
 
   /* Colores de texto */
-  --text:#2f2725;           /* Texto principal */
-  --muted:rgba(47,39,37,0.68); /* Texto menos destacado */
+  --text:#2f2725;           
+  --muted:rgba(47,39,37,0.68); 
 
   /* Sombra general */
   --shadow:0 12px 40px rgba(46,38,35,0.08);
@@ -19,17 +19,24 @@
 /* =============================
    RESET Y CONFIGURACIÓN GENERAL
    ============================= */
-*{box-sizing:border-box} /* Padding y borde no aumentan el tamaño total del elemento */
+*{box-sizing:border-box}
+
+html, body {
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto;
+  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%);
+  color:var(--text);
+  height:100%;
+}
 
 body{
-  margin:0;
-  font-family:'Inter',system-ui, -apple-system, 'Segoe UI', Roboto; /* Tipografía */
   display:flex;
-  align-items:center;      /* Centrado vertical */
-  justify-content:center;  /* Centrado horizontal */
-  background:linear-gradient(180deg,#fbf6f4 0%,#f7efea 100%); /* Fondo degradado */
-  color:var(--text);
-  padding:28px;            /* Espacio alrededor del contenido */
+  justify-content:center;
+  padding:28px;
+  min-height:100vh;
+  align-items:flex-start;
 }
 
 /* =============================
@@ -37,13 +44,14 @@ body{
    ============================= */
 .frame{
   width:980px;
-  max-width:96vw;                  /* Adaptable a pantallas pequeñas */
-  border-radius:16px;              /* Bordes redondeados */
-  overflow:hidden;                 /* Oculta overflow */
+  max-width:96vw;
+  border-radius:16px;
+  overflow:hidden;
   display:grid;
-  grid-template-columns:300px 1fr; /* Sidebar + contenido principal */
+  grid-template-columns:300px 1fr;
   box-shadow:var(--shadow);
-  background:rgba(255,255,255,0.96); /* Fondo semitransparente */
+  background:rgba(255,255,255,0.96);
+  min-height:90vh;
 }
 
 /* =============================
@@ -51,7 +59,7 @@ body{
    ============================= */
 .sidebar{
   padding:28px;
-  background:linear-gradient(180deg,var(--cherish),var(--nude-blush)); /* Degradado */
+  background:linear-gradient(180deg,var(--cherish),var(--nude-blush));
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -61,14 +69,14 @@ body{
 }
 
 /* =============================
-   BRAND (Logo y nombre)
+   BRAND
    ============================= */
 .brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
 }
 
 .brand img{
@@ -76,18 +84,18 @@ body{
   height:86px;
   border-radius:12px;
   object-fit:contain;
-  box-shadow:0 8px 26px rgba(0,0,0,0.12); /* Sombra del logo */
+  box-shadow:0 8px 26px rgba(0,0,0,0.12);
 }
 
 .brand h1{
   margin:0;
   font-size:20px;
-  font-weight:800; /* Negrita */
+  font-weight:800;
 }
 
 .brand p{
   margin:4px 0 0 0;
-  color:var(--muted); /* Texto secundario */
+  color:var(--muted);
 }
 
 /* =============================
@@ -96,7 +104,7 @@ body{
 .main{
   padding:36px;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:center;
 }
 
@@ -112,7 +120,6 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.04);
 }
 
-/* Encabezados */
 h2{
   margin:0 0 8px 0;
   font-size:20px;
@@ -123,20 +130,17 @@ h2{
    ============================= */
 form{
   display:grid;
-  grid-template-columns:1fr 1fr; /* Dos columnas */
+  grid-template-columns:1fr; /* ✅ ahora todo ocupa el ancho completo */
   gap:12px;
 }
 
-/* Etiquetas */
 label{
-  grid-column:span 2;          /* Ocupa ambas columnas */
   font-size:13px;
   color:var(--muted);
   margin-top:8px;
 }
 
-/* Inputs y selects */
-input, select{
+input, select, textarea{
   width:100%;
   padding:10px;
   border-radius:10px;
@@ -145,16 +149,61 @@ input, select{
   font-size:14px;
 }
 
-/* Botón de guardar */
+/* =============================
+   BOTÓN GUARDAR
+   ============================= */
 .btn-guardar{
-  grid-column:span 2; /* Ocupa ambas columnas */
   padding:12px;
   border-radius:10px;
   border:none;
-  background:linear-gradient(180deg,var(--rosegold),#a97566);
+  background:var(--rosegold);
   color:white;
   font-weight:700;
   cursor:pointer;
+  transition:all 0.25s ease;
+  box-shadow:0 6px 18px rgba(190,148,133,0.18);
+}
+
+.btn-guardar:hover{
+  background-color:#a9786a;
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(190,148,133,0.28);
+}
+
+.btn-guardar:active{
+  background-color:#8c5f53;
+  transform:translateY(1px) scale(0.97);
+  box-shadow:0 4px 12px rgba(190,148,133,0.22);
+}
+
+.btn-guardar:focus{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(190,148,133,0.4);
+}
+
+/* =============================
+   BOTÓN VOLVER (blanco)
+   ============================= */
+.btn-back{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:10px;
+  text-decoration:none;
+  background:#fff;
+  color:var(--text);
+  font-weight:600;
+  transition:all .25s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  border:1px solid rgba(0,0,0,0.06);
+}
+.btn-back:hover,
+.btn-back:focus{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(0,0,0,0.15);
+}
+.btn-back:active{
+  transform:translateY(1px);
+  box-shadow:0 3px 8px rgba(0,0,0,0.12);
 }
 
 /* =============================
@@ -162,18 +211,13 @@ input, select{
    ============================= */
 @media(max-width:800px){
   .frame{
-    grid-template-columns:1fr; /* Sidebar arriba del contenido */
+    grid-template-columns:1fr;
   }
   .card{
     padding:20px;
+    max-width:100%;
   }
   form{
-    grid-template-columns:1fr; /* Formulario en una sola columna */
-  }
-  label{
-    grid-column:span 1; /* Etiqueta ocupa solo la columna disponible */
-  }
-  .btn-guardar{
-    grid-column:span 1; /* Botón ocupa solo la columna */
+    grid-template-columns:1fr;
   }
 }
