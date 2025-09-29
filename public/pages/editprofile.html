@@ -3,64 +3,72 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Editar Perfil — ListUp</title>
+  <title>Edit Profile — ListUp</title>
 
-  <!-- Conexión a Google Fonts -->
+  <!-- Google Fonts connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="../previews/WhatsApp-Image-2025-09-28-at-11.02.45-PM.ico">
-  <!-- CSS específico de la página -->
+
+  <!-- Page-specific CSS -->
   <link rel="stylesheet" href="../css/editprofile.css">
 </head>
 <body>
   <div class="frame">
-    <!-- Sidebar con logo y descripción -->
+
+    <!-- Sidebar with logo and description -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="../previews/todolist.png" alt="Logo ListUp">
+        <img src="../previews/todolist.png" alt="ListUp Logo">
         <div>
           <h1>ListUp</h1>
-          <p>Edicion de perfil</p>
+          <p>Profile Editing</p>
         </div>
       </div>
-      <!-- Botón de volver al inicio -->
-      <a href="tasks.html" class="btn-back">← Volver al inicio</a>
+      <!-- Back button to return to tasks -->
+      <a href="tasks.html" class="btn-back">← Back to Home</a>
     </aside>
 
-    <!-- Área principal de edición de perfil -->
+    <!-- Main section for profile editing -->
     <main class="main">
       <div class="card">
-        <h2>EDITAR PERFIL</h2>
+        <h2>EDIT PROFILE</h2>
 
-        <!-- Formulario de edición de perfil -->
+        <!-- Profile editing form -->
         <form id="editProfileForm">
-          <!-- Campo de nombre -->
-          <label for="firstName">Nombre:</label>
+
+          <!-- First name field -->
+          <label for="firstName">First Name:</label>
           <input type="text" id="firstName" name="firstName" required>
 
-          <!-- Campo de apellido -->
-          <label for="lastName">Apellido:</label>
+          <!-- Last name field -->
+          <label for="lastName">Last Name:</label>
           <input type="text" id="lastName" name="lastName" required>
 
-          <!-- Campo de edad -->
-          <label for="age">Edad:</label>
+          <!-- Age field -->
+          <label for="age">Age:</label>
           <input type="number" id="age" name="age" min="13" required>
 
-          <!-- Campo de correo electrónico -->
-          <label for="email">Correo:</label>
+          <!-- Email field -->
+          <label for="email">Email:</label>
           <input type="email" id="email" name="email" required>
 
-          <!-- Botones de acción -->
+          <!-- Action buttons -->
           <div class="button-group">
-            <button type="submit" class="btn-guardar">GUARDAR CAMBIOS</button>
-            <button type="button" class="btn-cancelar" onclick="cancelarEdicion()">CANCELAR</button>
+            <!-- Save changes button -->
+            <button type="submit" class="btn-guardar">SAVE CHANGES</button>
+            <!-- Cancel button triggers cancelarEdicion() -->
+            <button type="button" class="btn-cancelar" onclick="cancelarEdicion()">CANCEL</button>
           </div>
         </form>
       </div>
     </main>
   </div>
 
-<script src="../js/profile.js"></script>
+  <!-- Script handling profile logic -->
+  <script src="../js/profile.js"></script>
 </body>
 </html>

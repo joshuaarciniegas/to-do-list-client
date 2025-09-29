@@ -3,54 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Recuperar contraseña — ListUp</title>
+  <title>Password Recovery — ListUp</title>
 
-  <!-- Conexión a Google Fonts -->
+  <!-- Google Fonts connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="../previews/WhatsApp-Image-2025-09-28-at-11.02.45-PM.ico">
-  <!-- CSS específico de la página -->
+
+  <!-- Page-specific CSS -->
   <link rel="stylesheet" href="../css/forgot.css">
 </head>
 <body>
   <div class="frame">
-    <!-- Sidebar con logo y descripción -->
+
+    <!-- Sidebar with logo and description -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="../previews/todolist.png" alt="Logo ListUp">
+        <img src="../previews/todolist.png" alt="ListUp Logo">
         <div>
           <h1>ListUp</h1>
-          <p>Recuperar contraseña</p>
+          <p>Password Recovery</p>
         </div>
       </div>
     </aside>
 
-    <!-- Área principal de recuperación de contraseña -->
+    <!-- Main section for password recovery -->
     <main class="main">
       <div class="card">
-        <h2>¿Olvidaste tu contraseña?</h2>
+        <h2>Forgot your password?</h2>
 
-        <!-- Formulario de ingreso de correo para recuperar contraseña -->
+        <!-- Form to request password recovery -->
         <form id="forgotForm">
-          <!-- Label y campo de email -->
-          <label for="email" style="width:100%;text-align:left">Correo Electrónico:</label>
-          <input type="email" id="email" placeholder="ejemplo@correo.com" required>
 
-          <!-- Texto informativo sobre el envío del enlace -->
-          <p class="info-text">Te enviaremos un enlace seguro a tu correo para recuperarla</p>
+          <!-- Email label and input field -->
+          <label for="email" style="width:100%;text-align:left">Email Address:</label>
+          <input type="email" id="email" placeholder="example@email.com" required>
 
-          <!-- Botón de envío del formulario -->
-          <button type="submit">Enviar Enlace</button>
+          <!-- Info text explaining the recovery process -->
+          <p class="info-text">We will send a secure link to your email to reset your password</p>
+
+          <!-- Submit button to send recovery request -->
+          <button type="submit">Send Link</button>
         </form>
 
-        <!-- Enlace para volver al login -->
-        <a href="../index.html" class="back-login">Volver al inicio de sesión</a>
+        <!-- Link to go back to login page -->
+        <a href="../index.html" class="back-login">Back to login</a>
       </div>
     </main>
   </div>
 
-  <!-- Script que contiene la lógica para enviar el enlace de recuperación -->
+  <!-- Script containing password recovery logic -->
   <script src="../js/resetp.js"></script>
 </body>
 </html>

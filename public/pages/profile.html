@@ -3,65 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Perfil - ListUp</title>
+  <title>Profile - ListUp</title>
 
-  <!-- Conexión a Google Fonts -->
+  <!-- Google Fonts connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="../previews/WhatsApp-Image-2025-09-28-at-11.02.45-PM.ico">
-  <!-- CSS específico de la página de perfil -->
+
+  <!-- Profile page-specific CSS -->
   <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
   <div class="frame">
-    <!-- Sidebar con logo y descripción -->
+    <!-- Sidebar with logo and description -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="../previews/todolist.png" alt="Logo ListUp">
+        <img src="../previews/todolist.png" alt="ListUp Logo">
         <div>
           <h1>ListUp</h1>
-          <p>Mi perfil</p>
+          <p>My Profile</p>
         </div>
       </div>
-      <!-- Botón de volver al inicio -->
-      <a href="tasks.html" class="btn-back">← Volver al inicio</a>
+      <!-- Back button redirects to task list -->
+      <a href="tasks.html" class="btn-back">← Back to Home</a>
     </aside>
 
-    <!-- Área principal del perfil de usuario -->
+    <!-- Main area displaying user profile information -->
     <main class="main">
       <div class="card">
-        <!-- Información principal con foto y nombre -->
+        <!-- Main user info section with profile picture and registration date -->
         <div style="display:flex;gap:16px;align-items:center">
           <div class="profile-pic">
-            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Foto de perfil">
+            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture">
           </div>
           <div>
-            <h2 style="margin:0">Informacion del usuario</h2>
-            <p style="margin:6px 0 0 0;color:var(--muted)">Miembro desde: 24 Junio 2025</p>
+            <h2 style="margin:0">User Information</h2>
+            <p style="margin:6px 0 0 0;color:var(--muted)">Member since: June 24, 2025</p>
           </div>
         </div>
 
-        <!-- Información detallada del usuario -->
+        <!-- Detailed user info section -->
         <div class="info">
-          <p><strong>Nombre y Apellido:</strong> </p>
+          <p><strong>Full Name:</strong></p>
           <hr>
-          <p><strong>Edad:</strong></p>
+          <p><strong>Age:</strong></p>
           <hr>
-          <p><strong>Correo electrónico:</strong></p>
+          <p><strong>Email Address:</strong></p>
           <hr>
         </div>
 
-        <!-- Botones de acción del perfil -->
+        <!-- Profile action buttons -->
         <div class="buttons">
-          <!-- Redirige a editar perfil -->
-          <button onclick="window.location.href='editprofile.html'" class="btn edit">Editar perfil</button>
+          <!-- Redirects to profile editing page -->
+          <button onclick="window.location.href='editprofile.html'" class="btn edit">Edit Profile</button>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Script que contiene la lógica de autenticación y cierre de sesión -->
+  <!-- Scripts handling authentication and profile logic -->
   <script src="../js/auth.js"></script>
   <script src="../js/profile.js"></script>
 </body>

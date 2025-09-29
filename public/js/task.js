@@ -1,118 +1,167 @@
-// Funciones básicas para los botones
+/**
+ * @fileoverview Task management UI logic.
+ * Provides:
+ * - Task editing, deletion, and rendering
+ * - Hamburger menu toggle
+ * - Live clock
+ * - Navigation shortcuts
+ * - Task search filter
+ * - API integration to load user tasks
+ */
+
+/**
+ * Edit a task (placeholder for future logic).
+ * @param {HTMLButtonElement} button - The edit button clicked.
+ */
 function editTask(button) {
-  const taskCard = button.closest(".task-card")
-  alert("Función de editar tarea - aquí puedes integrar tu lógica de edición")
+  const taskCard = button.closest(".task-card");
+  alert("Task edit function - integrate your edit logic here");
 }
 
 // =============================
-// MENU HAMBURGUESA
+// HAMBURGER MENU
 // =============================
+
+/** @type {HTMLElement} */
 const hamburger = document.getElementById("hamburger");
+/** @type {HTMLElement} */
 const sideMenu = document.getElementById("sideMenu");
+/** @type {HTMLElement} */
 const closeBtn = document.getElementById("closeBtn");
 
 hamburger.addEventListener("click", () => {
-  sideMenu.style.width = "260px"; // abre el menú
+  sideMenu.style.width = "260px";
 });
 
 closeBtn.addEventListener("click", () => {
-  sideMenu.style.width = "0"; // cierra el menú
+  sideMenu.style.width = "0";
 });
 
-  // =============================
-  // RELOJ EN VIVO
-  // =============================
-  function updateClock() {
-    const clock = document.getElementById("clock");
-    const now = new Date();
+// =============================
+// LIVE CLOCK
+// =============================
 
-    const options = { weekday: "long", day: "numeric", month: "short" };
-    const time = now.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
-    const date = now.toLocaleDateString("es-ES", options);
+/**
+ * Updates the clock element with the current time and date.
+ */
+function updateClock() {
+  const clock = document.getElementById("clock");
+  const now = new Date();
 
-    clock.innerHTML = `
+  const options = { weekday: "long", day: "numeric", month: "short" };
+  const time = now.toLocaleTimeString("es-ES", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const date = now.toLocaleDateString("es-ES", options);
+
+  clock.innerHTML = `
       <div style="font-size:20px; font-weight:700;">${time}</div>
       <div style="font-size:14px;">${date}</div>
     `;
-  }
+}
 
-  setInterval(updateClock, 1000);
-  updateClock();
+setInterval(updateClock, 1000);
+updateClock();
 
-// Función para redirigir al perfil
+// =============================
+// NAVIGATION FUNCTIONS
+// =============================
+
+/** Redirect to profile page */
 function goToProfile() {
-  window.location.href = "profile.html"; // cámbialo por la ruta real
+  window.location.href = "profile.html";
 }
 
-// Función para redirigir a la creación de tarea
+/** Redirect to task creation page */
 function goToCreateTask() {
-  window.location.href = "newtask.html"; // cámbialo por la ruta real
-}
-//funcion para redirigir a eliminar cuenta
-function goToDeleteAccount() {
-  window.location.href = "deleteaccount.html"; // cámbialo por la ruta real
-}
-//funcion para redirir a sobre nosotros
-function goToAboutUs() {
-  window.location.href = "aboutus.html"; // cámbialo por la ruta real
+  window.location.href = "newtask.html";
 }
 
-// Esperar a que el DOM cargue
+/** Redirect to delete account page */
+function goToDeleteAccount() {
+  window.location.href = "deleteaccount.html";
+}
+
+/** Redirect to about us page */
+function goToAboutUs() {
+  window.location.href = "aboutus.html";
+}
+
+// =============================
+// SEARCH FILTER
+// =============================
+
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
 
-  searchInput.addEventListener("input", () => {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    const taskCards = document.querySelectorAll(".task-card");
+  if (searchInput) {
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const taskCards = document.querySelectorAll(".task-card");
 
-    taskCards.forEach((card) => {
-      // Solo buscamos por el título
-      const title = card.querySelector(".task-title")?.textContent.toLowerCase() || "";
+      taskCards.forEach((card) => {
+        const title =
+          card.querySelector(".task-title")?.textContent.toLowerCase() || "";
 
-      if (title.includes(searchTerm)) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
+        card.style.display = title.includes(searchTerm) ? "block" : "none";
+      });
     });
-  });
+  }
 });
 
+// =============================
+// LOAD AND RENDER TASKS
+// =============================
 
-
-
-// funcion para mostrar las tareas
 document.addEventListener("DOMContentLoaded", async () => {
+  /**
+   * Fetch tasks from the backend API.
+   * @async
+   */
   async function loadTasks() {
     try {
       const token = localStorage.getItem("token");
-
       if (!token) {
-        throw new Error("No se encontró el token de autenticación");
+        throw new Error("Authentication token not found");
       }
 
-      const response = await fetch("https://demo-290a.onrender.com/api/v1/tasks/mytasks", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+      const response = await fetch(
+        "https://demo-290a.onrender.com/api/v1/tasks/mytasks",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         }
-      });
+      );
 
       const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.message || "Error al cargar tareas");
+        throw new Error(data.message || "Error loading tasks");
       }
 
       const tasks = data.tasks || [];
       renderTasks(tasks);
     } catch (error) {
-      console.error("Error al cargar tareas:", error.message);
-      document.getElementById("todo-column").innerHTML = `<p style="color:red;">❌ ${error.message}</p>`;
+      console.error("Error loading tasks:", error.message);
+      document.getElementById(
+        "todo-column"
+      ).innerHTML = `<p style="color:red;">❌ ${error.message}</p>`;
     }
   }
 
+  /**
+   * Render tasks into the Kanban columns.
+   * @param {Array<Object>} tasks - Array of task objects.
+   * @param {string} tasks[].title - Task title.
+   * @param {string} tasks[].detail - Task details.
+   * @param {string} tasks[].status - Task status ("Por hacer", "Haciendo", "Hecho").
+   * @param {string} [tasks[].date] - Task due date.
+   * @param {string} [tasks[].time] - Task due time.
+   * @param {string} tasks[]._id - Task unique ID.
+   */
   function renderTasks(tasks) {
     const todo = document.getElementById("todo-column");
     const doing = document.getElementById("doing-column");
@@ -126,57 +175,59 @@ document.addEventListener("DOMContentLoaded", async () => {
       const card = document.createElement("div");
       card.className = "task-card";
       card.innerHTML = `
-      <div class="task-title"><strong>Título:</strong> ${t.title}</div>
-      <div class="task-detail"><strong>Detalle:</strong> ${t.detail || "Sin detalle"}</div>
-      <div class="task-status"><strong>Estado:</strong> ${t.status}</div>
-      <div class="task-date"><strong>Fecha:</strong> ${t.date ? new Date(t.date).toLocaleDateString("es-ES") : "Sin fecha"}</div>
-      <div class="task-time"><strong>Hora:</strong> ${t.time || "Sin hora"}</div>
+      <div class="task-title"><strong>Title:</strong> ${t.title}</div>
+      <div class="task-detail"><strong>Detail</strong> ${t.detail || "Sin detalle"}</div>
+      <div class="task-status"><strong>Status:</strong> ${t.status}</div>
+      <div class="task-date"><strong>Date:</strong> ${
+        t.date ? new Date(t.date).toLocaleDateString("es-ES") : "Sin fecha"
+      }</div>
+      <div class="task-time"><strong>Hour:</strong> ${t.time || "Sin hora"}</div>
       <div class="task-actions">
-        <button class="btn-editar" title="Editar">✏️ Editar</button>
-        <button class="btn-eliminar" title="Eliminar">🗑️ Eliminar</button>
+        <button class="btn-editar" title="Editar">✏️ Edit</button>
+        <button class="btn-eliminar" title="Eliminar">🗑️ Delete</button>
       </div>
     `;
 
-
-      // 🔹 Seleccionamos el botón de editar dentro de la card
+      // Edit button
       const botonEditar = card.querySelector(".btn-editar");
       botonEditar.addEventListener("click", () => {
-        localStorage.setItem("taskId", t._id); // guardamos el id de la tarea
-        window.location.href = "editasks.html"; // redirigimos a la página de editar
+        localStorage.setItem("taskId", t._id);
+        window.location.href = "editasks.html";
       });
 
-      // 🔹 Seleccionamos el botón de eliminar dentro de la card
+      // Delete button
       const botonEliminar = card.querySelector(".btn-eliminar");
       botonEliminar.addEventListener("click", async () => {
         const confirmar = confirm("¿Seguro que deseas eliminar esta tarea?");
         if (!confirmar) return;
 
         try {
-          const token = localStorage.getItem("token"); // 🔹 Aquí lo obtienes de nuevo
-          const res = await fetch(`https://demo-290a.onrender.com/api/v1/tasks/${t._id}`, {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": `Bearer ${token}`,
-            },
-          });
+          const token = localStorage.getItem("token");
+          const res = await fetch(
+            `https://demo-290a.onrender.com/api/v1/tasks/${t._id}`,
+            {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
           if (res.status === 204) {
             card.remove();
-            alert("✅ Tarea eliminada con éxito");
+            alert("✅ Task deleted successfully");
           } else {
             const data = await res.json().catch(() => ({}));
-            alert(data.message || "❌ Error al eliminar la tarea");
+            alert(data.message || "❌ Error deleting task");
           }
         } catch (err) {
-          console.error("Error eliminando tarea:", err.message || err);
-          alert("⚠️ No se pudo conectar con el servidor");
+          console.error("Error deleting task:", err.message || err);
+          alert("⚠️ Could not connect to the server");
         }
       });
 
-
-
-      // Colocar la tarjeta en la columna correspondiente
+      // Append card to column
       const status = t.status;
       if (status === "Por hacer") {
         todo.appendChild(card);

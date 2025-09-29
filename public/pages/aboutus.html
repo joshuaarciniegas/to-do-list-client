@@ -3,112 +3,134 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sobre Nosotros — ListUp</title>
+  <title>About Us — ListUp</title>
   <link rel="stylesheet" href="../css/aboutus.css">
   <link rel="icon" type="image/png" href="../previews/WhatsApp-Image-2025-09-28-at-11.02.45-PM.ico">
 </head>
 <body>
   <div class="app">
-    <aside class="sidebar" aria-label="Barra lateral">
+
+    <!-- Sidebar with brand and company info -->
+    <aside class="sidebar" aria-label="Sidebar">
       <a class="brand" href="#">
-        <img src="../previews/todolist.png" alt="Logo ListUp"> 
+        <img src="../previews/todolist.png" alt="ListUp Logo"> 
         <div class="brand-text">
           <h1>ListUp</h1>
-          <p>Informacion de empresa</p>
+          <p>Company Information</p>
         </div>
       </a>
     </aside>
 
+    <!-- Main content area -->
     <main class="content">
       <section class="panel" aria-labelledby="sobre">
-        <a class="btn-back" href="tasks.html"> ← Volver </a>
+        
+        <!-- Back button -->
+        <a class="btn-back" href="tasks.html"> ← Back </a>
 
+        <!-- Hero section with introduction and stats -->
         <header class="hero">
           <div class="text">
-            <h1 id="sobre">Sobre Nosotros</h1>
-            <p class="muted">En ListUp desarrollamos software innovador que impulsa la organización y productividad. Creamos soluciones accesibles, intuitivas y confiables para empresas y personas.</p>
+            <h1 id="sobre">About Us</h1>
+            <p class="muted">
+              At ListUp, we develop innovative software that enhances organization and productivity. 
+              We create accessible, intuitive, and reliable solutions for both businesses and individuals.
+            </p>
 
+            <!-- Company statistics -->
             <div class="stats" role="list">
               <div class="stat" role="listitem">
                 <strong>+5</strong>
-                <div class="muted">Años en el mercado</div>
+                <div class="muted">Years in the market</div>
               </div>
               <div class="stat" role="listitem">
                 <strong>+200</strong>
-                <div class="muted">Clientes satisfechos</div>
+                <div class="muted">Satisfied clients</div>
               </div>
               <div class="stat" role="listitem">
                 <strong>+63</strong>
-                <div class="muted">Plataformas desplegadas</div>
+                <div class="muted">Deployed platforms</div>
               </div>
             </div>
           </div>
 
+          <!-- Company illustration -->
           <figure aria-hidden="true">
-            <img src="../previews/logoempresaa.jpeg" alt="Taller ListUp" style="width:260px;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 12px 40px rgba(46,38,35,.08);">
+            <img src="../previews/logoempresaa.jpeg" 
+                 alt="ListUp Workshop" 
+                 style="width:260px;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 12px 40px rgba(46,38,35,.08);">
           </figure>
         </header>
 
+        <!-- Mission, vision, and team description -->
         <article>
-          <h2>Misión</h2>
-          <p class="muted">Nuestra misión es crear software eficiente y fácil de usar que ayude a optimizar el tiempo y los recursos de nuestros clientes.</p>
+          <h2>Mission</h2>
+          <p class="muted">
+            Our mission is to create efficient and easy-to-use software that helps optimize time and resources for our clients.
+          </p>
 
-          <h2 style="margin-top:14px">Visión</h2>
-          <p class="muted">Queremos ser una empresa líder en desarrollo de software, reconocida por la innovación y la calidad de nuestras soluciones.</p>
+          <h2 style="margin-top:14px">Vision</h2>
+          <p class="muted">
+            We aim to become a leading software development company, recognized for innovation and the quality of our solutions.
+          </p>
 
-          <h2 style="margin-top:14px">Nuestro equipo</h2>
+          <h2 style="margin-top:14px">Our Team</h2>
           <div class="team">
+
+            <!-- Team member: Frontend Developer -->
             <div class="card">
               <div style="display:flex;gap:12px;align-items:center">
                 <img class="avatar" src="../previews/WhatsApp Image 2025-09-27 at 10.04.28 PM.jpeg" alt="Avatar Joshua">
                 <div>
                   <h4>Joshua F. Arciniegas</h4>
-                  <small>Desarrollador Frontend</small>
+                  <small>Frontend Developer</small>
                 </div>
               </div>
             </div>
 
+            <!-- Team member: Backend Developer -->
             <div class="card">
               <div style="display:flex;gap:12px;align-items:center">
                 <img class="avatar" src="../previews/bedonfoto.jpeg" alt="Avatar Santiago">
                 <div>
                   <h4>Santiago Bedon</h4>
-                  <small>Desarrollador Backend</small>
+                  <small>Backend Developer</small>
                 </div>
               </div>
             </div>
 
+            <!-- Team member: Database Developer -->
             <div class="card">
               <div style="display:flex;gap:12px;align-items:center">
                 <img class="avatar" src="../previews/salinasfoto.jpeg" alt="Avatar Carlos">
                 <div>
                   <h4>Carlos Salinas</h4>
-                  <small>Desarrollador Bases de Datos</small>
+                  <small>Database Developer</small>
                 </div>
               </div>
             </div>
 
+            <!-- Team member: Designer & Product Owner -->
             <div class="card">
               <div style="display:flex;gap:12px;align-items:center">
                 <img class="avatar" src="../previews/WhatsApp Image 2025-09-27 at 10.18.52 PM.jpeg" alt="Avatar Alejandra">
                 <div>
                   <h4>Alejandra Giraldo R.</h4>
-                  <small>Diseñadora & Product Owner</small>
+                  <small>Designer & Product Owner</small>
                 </div>
               </div>
             </div>
-
           </div>
 
+          <!-- Call to action section -->
           <div class="cta">
-            <p class="muted">¿Quieres conocer nuestros trabajos o solicitar un proyecto especifico?</p>
+            <p class="muted">Want to see our projects or request a custom solution?</p>
             <div class="actions">
-              <a class="btn primary" >Contáctanos</a>
-              <a class="btn ghost">Ver catálogo</a>
+              <a class="btn primary">Contact Us</a>
+              <a class="btn ghost">View Catalog</a>
             </div>
           </div>
         </article>
-
       </section>
     </main>
   </div>

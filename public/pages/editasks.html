@@ -3,69 +3,75 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Editar tarea — ListUp</title>
+  <title>Edit Task — ListUp</title>
 
-  <!-- Conexión a Google Fonts -->
+  <!-- Google Fonts connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="../previews/WhatsApp-Image-2025-09-28-at-11.02.45-PM.ico">
-  <!-- CSS específico de la página -->
+
+  <!-- Page-specific CSS -->
   <link rel="stylesheet" href="../css/editask.css">
 </head>
 <body>
   <div class="frame">
-    <!-- Sidebar con logo y descripción de la app -->
+
+    <!-- Sidebar with logo and description -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="../previews/todolist.png" alt="Logo ListUp">
+        <img src="../previews/todolist.png" alt="ListUp Logo">
         <div>
           <h1>ListUp</h1>
-          <p>Edición de tareas</p>
+          <p>Task Editing</p>
         </div>
       </div>
-      <!-- Botón de volver al inicio -->
-      <a href="tasks.html" class="btn-back">← Volver al inicio</a>
+      <!-- Back button to return to task list -->
+      <a href="tasks.html" class="btn-back">← Back to Home</a>
     </aside>
 
-    <!-- Área principal para editar la tarea -->
+    <!-- Main section for editing the task -->
     <main class="main">
       <div class="card">
-        <h2>EDITAR TAREA</h2>
+        <h2>EDIT TASK</h2>
 
-        <!-- Formulario para editar tarea -->
+        <!-- Edit task form -->
         <form id="formEditarTarea">
-          <!-- Campo de título de la tarea -->
-          <label for="titulo">Título:</label>
+
+          <!-- Task title field -->
+          <label for="titulo">Title:</label>
           <input type="text" id="titulo" name="titulo" required value="Tarea ejemplo">
 
-          <!-- Campo de detalle de la tarea -->
-          <label for="detalle">Detalle:</label>
+          <!-- Task detail field -->
+          <label for="detalle">Detail:</label>
           <input type="text" id="detalle" name="detalle" required value="Detalle de ejemplo">
 
-          <!-- Campo de fecha de la tarea -->
-          <label for="fecha">Fecha:</label>
+          <!-- Task date field -->
+          <label for="fecha">Date:</label>
           <input type="date" id="fecha" name="fecha" required value="2025-09-12">
 
-          <!-- Campo de hora de la tarea -->
-          <label for="hora">Hora:</label>
+          <!-- Task time field -->
+          <label for="hora">Time:</label>
           <input type="time" id="hora" name="hora" required value="12:00">
 
-          <!-- Campo de estado de la tarea -->
-          <label for="estado">Estado:</label>
+          <!-- Task status field -->
+          <label for="estado">Status:</label>
           <select id="estado" name="estado" required>
-            <option value="Por hacer">Por Hacer</option>
-            <option value="Haciendo" selected>Haciendo</option>
-            <option value="Hecho">Hecho</option>
+            <option value="Por hacer">To Do</option>
+            <option value="Haciendo" selected>In Progress</option>
+            <option value="Hecho">Done</option>
           </select>
 
-          <!-- Botón para enviar los cambios -->
-          <button type="submit" class="btn-guardar">ACTUALIZAR</button>
+          <!-- Submit button to save changes -->
+          <button type="submit" class="btn-guardar">UPDATE</button>
         </form>
       </div>
     </main>
   </div>
 
-<script src="../js/editasks.js"></script>
+  <!-- Script handling task editing logic -->
+  <script src="../js/editasks.js"></script>
 </body>
 </html>

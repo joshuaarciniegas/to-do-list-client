@@ -3,71 +3,73 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Crear nueva tarea — ListUp</title>
+  <title>Create New Task — ListUp</title>
 
-  <!-- Conexión a Google Fonts -->
+  <!-- Google Fonts connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="../previews/WhatsApp-Image-2025-09-28-at-11.02.45-PM.ico">
-  <!-- CSS específico de la página -->
+
+  <!-- Page-specific CSS -->
   <link rel="stylesheet" href="../css/newtask.css">
 </head>
 <body>
   <div class="frame">
-    <!-- Sidebar con logo y descripción -->
+    <!-- Sidebar with logo and description -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="../previews/todolist.png" alt="Logo ListUp">
+        <img src="../previews/todolist.png" alt="ListUp Logo">
         <div>
           <h1>ListUp</h1>
-          <p>Crear tarea</p>
+          <p>Create Task</p>
         </div>
       </div>
-      <!-- Botón de volver al inicio -->
-      <a href="tasks.html" class="btn-back">← Volver al inicio</a>
+      <!-- Back button redirects to task list -->
+      <a href="tasks.html" class="btn-back">← Back to Home</a>
     </aside>
 
-    <!-- Área principal para crear una nueva tarea -->
+    <!-- Main area for creating a new task -->
     <main class="main">
       <div class="card">
-        <h2>CREAR NUEVA TAREA</h2>
+        <h2>CREATE NEW TASK</h2>
 
-        <!-- Formulario de creación de tarea -->
+        <!-- Task creation form -->
         <form id="formTarea">
-          <!-- Campo de título de la tarea -->
-          <label for="titulo">Título:</label>
+          <!-- Task title field -->
+          <label for="titulo">Title:</label>
           <input type="text" id="titulo" name="title" required>
 
-          <!-- Campo de detalle de la tarea -->
-          <label for="detalle">Detalle:</label>
+          <!-- Task detail field -->
+          <label for="detalle">Detail:</label>
           <input type="text" id="detalle" name="detail" required>
 
-          <!-- Campo de fecha -->
-          <label for="fecha">Fecha:</label>
+          <!-- Task date field -->
+          <label for="fecha">Date:</label>
           <input type="date" id="fecha" name="date" required>
 
-          <!-- Campo de hora -->
-          <label for="hora">Hora:</label>
+          <!-- Task time field -->
+          <label for="hora">Time:</label>
           <input type="time" id="hora" name="time" required>
 
-
-          <!-- Campo de estado de la tarea -->
-          <label for="estado">Estado:</label>
+          <!-- Task status field -->
+          <label for="estado">Status:</label>
           <select id="estado" name="status" required>
-            <option value="Por hacer">Por Hacer</option>
-            <option value="Haciendo">Haciendo</option>
-            <option value="Hecho">Hecho</option>
+            <option value="Por hacer">To Do</option>
+            <option value="Haciendo">In Progress</option>
+            <option value="Hecho">Done</option>
           </select>
 
-          <!-- Botón para enviar el formulario -->
-          <button type="submit" class="btn-guardar">GUARDAR</button>
+          <!-- Submit button to save the task -->
+          <button type="submit" class="btn-guardar">SAVE</button>
         </form>
       </div>
     </main>
   </div>
 
-  <!-- Script que contiene la lógica para crear tareas -->
+  <!-- Script containing task creation logic -->
   <script src="../js/tasks.js"></script>
 </body>
 </html>

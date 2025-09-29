@@ -3,58 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Restablecer Contraseña — ListUp</title>
+  <title>Reset Password — ListUp</title>
 
-  <!-- Conexión a Google Fonts -->
+  <!-- Google Fonts connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="../previews/WhatsApp-Image-2025-09-28-at-11.02.45-PM.ico">
-  <!-- CSS específico de la página de restablecimiento de contraseña -->
+
+  <!-- CSS specific to password reset page -->
   <link rel="stylesheet" href="../css/resetp.css">
 </head>
 <body>
   <div class="frame">
-    <!-- Sidebar con logo y descripción -->
+    <!-- Sidebar with logo and description -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="../previews/todolist.png" alt="Logo ListUp">
+        <img src="../previews/todolist.png" alt="ListUp Logo">
         <div>
           <h1>ListUp</h1>
-          <p>Restablecer contraseña</p>
+          <p>Reset Password</p>
         </div>
       </div>    
     </aside>
 
-    <!-- Área principal para restablecer la contraseña -->
+    <!-- Main area for resetting the password -->
     <main class="main">
       <div class="card">
-        <h2>Restablece tu contraseña</h2>
+        <h2>Reset your password</h2>
 
-        <!-- Formulario para ingresar nueva contraseña -->
+        <!-- Form to input the new password -->
         <form id="resetForm">
-          <!-- Campo para la nueva contraseña -->
-          <label for="new-password">Nueva contraseña:</label>
+          <!-- Input field for the new password -->
+          <label for="new-password">New password:</label>
           <input type="password" id="new-password" placeholder="••••••••" required>
 
-          <!-- Campo para confirmar la contraseña -->
-          <label for="confirm-password">Confirmar contraseña:</label>
+          <!-- Input field to confirm the new password -->
+          <label for="confirm-password">Confirm password:</label>
           <input type="password" id="confirm-password" placeholder="••••••••" required>
 
-          <!-- Mensaje de error que se mostrará si hay un problema con las contraseñas -->
-          <p id="error-message" class="error-message">Las contraseñas no coinciden</p>
+          <!-- Error message displayed if passwords do not match -->
+          <p id="error-message" class="error-message">Passwords do not match</p>
 
-          <!-- Información adicional sobre los requisitos de la contraseña -->
-          <p class="info-text">Su contraseña debe contener mínimo 8 caracteres, incluir mayúscula, minúscula y número</p>
+          <!-- Additional information about password requirements -->
+          <p class="info-text">Your password must contain at least 8 characters, include uppercase, lowercase, and a number</p>
 
-          <!-- Botón para enviar el formulario -->
-          <button type="submit">Actualizar contraseña</button>
+          <!-- Submit button to update the password -->
+          <button type="submit">Update Password</button>
         </form>
       </div>
     </main>
   </div>
 
-  <!-- Script que contiene la lógica de validación y envío del restablecimiento -->
+  <!-- Script containing the validation and password reset logic -->
   <script src="../js/resetp.js"></script>
 </body>
 </html>

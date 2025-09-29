@@ -3,107 +3,110 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lista de Tareas - Kanban — ListUp</title>
+  <title>Task List - Kanban — ListUp</title>
 
-  <!-- Conexión a Google Fonts -->
+  <!-- Google Fonts connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="../previews/WhatsApp-Image-2025-09-28-at-11.02.45-PM.ico">
-  <!-- CSS específico para la página de tareas -->
+
+  <!-- CSS specific to the tasks page -->
   <link rel="stylesheet" href="../css/tasks.css">
 </head>
 <body>
   <div class="container">
 
-    <!-- Header de la página -->
+    <!-- Page header -->
     <header class="header">
       <div class="header-left">
-        <!-- Botón hamburguesa -->
+        <!-- Hamburger button -->
         <span class="hamburger" id="hamburger">☰</span>
 
-        <!-- Menú lateral -->
+        <!-- Sidebar menu -->
         <nav class="side-menu" id="sideMenu">
+          <!-- Close button -->
           <button class="close-btn" id="closeBtn">✖</button>
           <ul>
-            <li><a href="#" onclick="goToProfile()">Perfil</a></li>
-            <li><a href="#" onclick="goToAboutUs()">Sobre nosotros</a></li>
-            <li><a href="#" onclick="goToDeleteAccount()">Eliminar cuenta</a></li>
-            <li><a href="#" id="logout-btn">Cerrar sesión</a></li>
+            <li><a href="#" onclick="goToProfile()">Profile</a></li>
+            <li><a href="#" onclick="goToAboutUs()">About us</a></li>
+            <li><a href="#" onclick="goToDeleteAccount()">Delete account</a></li>
+            <li><a href="#" id="logout-btn">Log out</a></li>
           </ul>
 
-          <!-- Reloj -->
+          <!-- Real-time clock -->
           <div class="clock" id="clock"></div>
         </nav>
       </div>
 
-      <!-- Título de la página -->
-      <h1 class="title">LISTA DE TAREAS</h1>    
+      <!-- Page title -->
+      <h1 class="title">TASK LIST</h1>    
 
-      <!-- Logo de la aplicación -->
+      <!-- Application logo -->
       <div class="logo">
         <span class="logo-text" style="font-weight:800">ListUp</span>
       </div>
     </header>
 
-    <!-- Barra de búsqueda -->
+    <!-- Search bar -->
     <div class="search-container">
-      <input type="text" id="searchInput" placeholder="BUSCAR" class="search-input">
+      <input type="text" id="searchInput" placeholder="SEARCH" class="search-input">
       <button class="btn-buscar">🔍</button>
-      <button class="btn-crear" href="#" onclick="goToCreateTask()">Nueva Tarea</button>
+      <button class="btn-crear" href="#" onclick="goToCreateTask()">New Task</button>
     </div>
 
-    <!-- Tablero Kanban con tres columnas -->
+    <!-- Kanban board with three columns -->
     <div class="kanban-board">
-      <!-- Columna Por hacer -->
+      <!-- To Do column -->
       <div class="column">
-        <h2 class="column-header todo-header">POR HACER</h2>
+        <h2 class="column-header todo-header">TO DO</h2>
         <div class="column-content" id="todo-column">
-          <!-- Aquí se agregarán dinámicamente las tareas "Por hacer" desde task.js -->
+          <!-- "To Do" tasks will be dynamically added here by task.js -->
         </div>
       </div>
 
-      <!-- Columna Haciendo -->
+      <!-- Doing column -->
       <div class="column">
-        <h2 class="column-header doing-header">HACIENDO</h2>
+        <h2 class="column-header doing-header">DOING</h2>
         <div class="column-content" id="doing-column">
-          <!-- Aquí se agregarán dinámicamente las tareas "Haciendo" desde task.js -->
+          <!-- "Doing" tasks will be dynamically added here by task.js -->
         </div>
       </div>
 
-      <!-- Columna Hecho -->
+      <!-- Done column -->
       <div class="column">
-        <h2 class="column-header done-header">HECHO</h2>
+        <h2 class="column-header done-header">DONE</h2>
         <div class="column-content" id="done-column">
-          <!-- Aquí se agregarán dinámicamente las tareas "Hecho" desde task.js -->
+          <!-- "Done" tasks will be dynamically added here by task.js -->
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Modal para confirmar eliminación de tarea -->
+  <!-- Modal to confirm task deletion -->
   <div id="miModal" class="modal">
     <div class="modal-content">
-      <p>¿Seguro que deseas borrar esta tarea?</p>
-      <button id="cancelar">Cancelar</button>
-      <button id="confirmar">Eliminar</button>
+      <p>Are you sure you want to delete this task?</p>
+      <button id="cancelar">Cancel</button>
+      <button id="confirmar">Delete</button>
     </div>
   </div>
+
+  <!-- Footer with site map -->
   <footer>
-  <div class="footer-content">
-    <p>&copy; 2025 ListUp. Todos los derechos reservados.</p>
-    <nav class="footer-nav">
-      <a href="map.html">Mapa del Sitio</a> 
-    </nav>
-  </div>
-</footer>
+    <div class="footer-content">
+      <p>&copy; 2025 ListUp. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="map.html">Site Map</a> 
+      </nav>
+    </div>
+  </footer>
 
-
-
-  
-  <!-- Script que maneja la carga dinámica de tareas, eliminación y eventos -->
+  <!-- Script that handles dynamic task loading, deletion and events -->
   <script src="../js/task.js"></script>
-  <!-- Script que maneja la redireccion para la funcion logout -->
+  <!-- Script that handles redirection and logout functionality -->
   <script src="../js/auth.js"></script>
 </body>
 </html>

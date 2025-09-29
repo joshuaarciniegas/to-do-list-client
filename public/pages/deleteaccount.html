@@ -3,62 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Eliminar cuenta — ListUp</title>
+  <title>Delete Account — ListUp</title>
 
-  <!-- Conexión a fuentes de Google Fonts -->
+  <!-- Google Fonts connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="../previews/WhatsApp-Image-2025-09-28-at-11.02.45-PM.ico">
-  <!-- CSS específico de la página -->
+
+  <!-- Page-specific CSS -->
   <link rel="stylesheet" href="../css/deleteaccount.css">
 </head>
 <body>
   <div class="frame">
-    <!-- Sidebar con logo, descripción y botón de volver -->
+
+    <!-- Sidebar with logo, description, and back button -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="../previews/todolist.png" alt="Logo empresa">
+        <img src="../previews/todolist.png" alt="Company Logo">
         <div>
           <h1>ListUp</h1>
-          <p>Eliminación de cuenta</p>
+          <p>Account Deletion</p>
         </div>
       </div>
 
-      <!-- Botón de volver al inicio -->
-      <a href="tasks.html" class="btn-back">← Volver al inicio</a>
+      <!-- Back button to return to tasks page -->
+      <a href="tasks.html" class="btn-back">← Back to Home</a>
     </aside>
 
-    <!-- Área principal donde se muestra el contenido de eliminación de cuenta -->
+    <!-- Main area containing the delete account form -->
     <main class="main">
       <div class="card">
-        <h2>¿Seguro que deseas ELIMINAR tu cuenta?</h2>
-        <p>Introduce tu contraseña y escribe <strong>ELIMINAR</strong> para confirmar esta acción irreversible.</p>
+        <h2>Are you sure you want to DELETE your account?</h2>
+        <p>Enter your password and type <strong>ELIMINAR</strong> to confirm this irreversible action.</p>
 
-        <!-- Campos de entrada -->
-        <input type="password" placeholder="Contraseña" id="password">
-        <input type="text" placeholder='Escribe "ELIMINAR" para confirmar' id="confirmText">
+        <!-- Input fields -->
+        <input type="password" placeholder="Password" id="password">
+        <input type="text" placeholder='Type "ELIMINAR" to confirm' id="confirmText">
 
-        <!-- Botones de acción -->
+        <!-- Action buttons -->
         <div class="buttons">
-          <!-- Botón de cancelar redirige a perfil -->
-          <button class="btn cancel" onclick="window.location.href='profile.html'">Cancelar</button>
-          <!-- Botón de eliminar llama a la función deleteAccount() -->
-          <button class="btn delete" onclick="deleteAccount()">Eliminar</button>
+          <!-- Cancel button redirects to profile page -->
+          <button class="btn cancel" onclick="window.location.href='profile.html'">Cancel</button>
+          <!-- Delete button triggers deleteAccount() function -->
+          <button class="btn delete" onclick="deleteAccount()">Delete</button>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Modal que se muestra al eliminar la cuenta -->
+  <!-- Success modal displayed after account deletion -->
   <div id="successModal" class="modal">
     <div class="modal-content">
-      <h3>CUENTA ELIMINADA</h3>
-      <p>Tu cuenta ha sido eliminada con éxito.</p>
-      <!-- Botón para cerrar modal y redirigir -->
-      <button onclick="closeModal()">Cerrar</button>
+      <h3>ACCOUNT DELETED</h3>
+      <p>Your account has been successfully deleted.</p>
+      <!-- Button to close modal and redirect -->
+      <button onclick="closeModal()">Close</button>
     </div>
   </div>
+
+  <!-- Script with account deletion logic -->
   <script src="../js/deleteaccount.js"></script>
 </body>
 </html>
